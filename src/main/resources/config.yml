@@ -1,0 +1,24 @@
+default-max-level: 5
+
+resolver:
+  convention-fallback: true
+  id-case: upper # upper | lower | preserve
+
+gems:
+  satthuong:
+    max-level: 5
+    type: GEM_STONE
+    levels:
+      1: SATTHUONG_1
+      2: SATTHUONG_2
+      3: SATTHUONG_3
+      4: SATTHUONG_4
+      5: SATTHUONG_5
+
+messages:
+  no-permission: "&cYou do not have permission to upgrade gemstones."
+  upgraded: "&aGem upgraded: &f{gem}&7 Lv.{old_level} &a-> &fLv.{new_level}"
+  max-level: "&cThis gem is already at max level: &f{gem} Lv.{level}"
+  missing-template: "&cMissing next gem template for &f{gem} Lv.{level}"
+  invalid-template: "&cNext gem template is invalid for &f{gem} Lv.{level}"
+  upgrade-failed: "&cCould not upgrade this gem."

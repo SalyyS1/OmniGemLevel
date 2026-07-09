@@ -1,0 +1,1086 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OmniGemLevel Wiki</title>
+  <meta name="description" content="Usage wiki for OmniGemLevel, an MMOItems gemstone level upgrade addon.">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f8fafc;
+      --panel: #ffffff;
+      --panel-soft: #eef6ff;
+      --ink: #132033;
+      --muted: #506174;
+      --line: #d7e0ea;
+      --primary: #2563eb;
+      --primary-soft: #dbeafe;
+      --accent: #f97316;
+      --ok: #15803d;
+      --warn: #b45309;
+      --code-bg: #111827;
+      --code-ink: #e5e7eb;
+      --shadow: 0 18px 50px rgba(15, 23, 42, 0.10);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Segoe UI", "Noto Sans", system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 16px;
+      top: -80px;
+      z-index: 10;
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: #fff;
+      transition: top 180ms ease;
+    }
+
+    .skip-link:focus {
+      top: 16px;
+    }
+
+    .shell {
+      width: min(1160px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: rgba(248, 250, 252, 0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .topbar-inner {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-weight: 800;
+      letter-spacing: 0;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      box-shadow: var(--shadow);
+      flex: 0 0 auto;
+    }
+
+    .brand span:last-child {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a,
+    .lang-button {
+      min-height: 44px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      padding: 9px 12px;
+      background: transparent;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 650;
+      transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+    }
+
+    .nav a:hover,
+    .lang-button:hover,
+    .nav a:focus-visible,
+    .lang-button:focus-visible {
+      background: var(--primary-soft);
+      border-color: #bfdbfe;
+      color: var(--primary);
+      outline: none;
+    }
+
+    .hero {
+      padding: 72px 0 38px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(310px, 0.72fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border: 1px solid #bfdbfe;
+      border-radius: var(--radius);
+      background: var(--primary-soft);
+      color: #1d4ed8;
+      font-size: 0.88rem;
+      font-weight: 750;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.12;
+      margin: 0;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      margin-top: 20px;
+      max-width: 800px;
+      font-size: clamp(2.4rem, 6vw, 5.6rem);
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+    }
+
+    h3 {
+      font-size: 1.08rem;
+    }
+
+    .hero-copy {
+      max-width: 700px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.18rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .button {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 10px 16px;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .button.primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .button.secondary {
+      background: #fff;
+      color: var(--ink);
+      border-color: var(--line);
+    }
+
+    .visual-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px;
+    }
+
+    .diagram {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .section {
+      padding: 34px 0;
+      scroll-margin-top: 92px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .section-head p {
+      max-width: 680px;
+      margin: 10px 0 0;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card,
+    .notice,
+    .faq-item {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 28px rgba(15, 23, 42, 0.05);
+    }
+
+    .card {
+      padding: 18px;
+    }
+
+    .card .icon {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius);
+      display: grid;
+      place-items: center;
+      background: var(--primary-soft);
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+
+    .card p,
+    .faq-item p,
+    .notice p {
+      color: var(--muted);
+      margin: 8px 0 0;
+    }
+
+    .notice {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      padding: 16px;
+      border-left: 4px solid var(--accent);
+    }
+
+    .notice.ok {
+      border-left-color: var(--ok);
+    }
+
+    .code-block {
+      position: relative;
+      margin: 14px 0 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--code-bg);
+      color: var(--code-ink);
+      border: 1px solid #1f2937;
+    }
+
+    pre {
+      margin: 0;
+      padding: 18px;
+      overflow: auto;
+      font-size: 0.93rem;
+      line-height: 1.55;
+      tab-size: 2;
+    }
+
+    code {
+      font-family: "Cascadia Code", "Consolas", monospace;
+    }
+
+    .copy-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      min-height: 36px;
+      border: 1px solid #374151;
+      border-radius: var(--radius);
+      padding: 6px 10px;
+      background: #1f2937;
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 750;
+    }
+
+    .steps {
+      counter-reset: step;
+      display: grid;
+      gap: 12px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      padding: 16px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius);
+      display: grid;
+      place-items: center;
+      background: var(--ink);
+      color: #fff;
+      font-weight: 850;
+    }
+
+    .step p {
+      margin: 6px 0 0;
+      color: var(--muted);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+    }
+
+    th,
+    td {
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--panel-soft);
+      color: var(--ink);
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .search-box {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      align-items: center;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 10px 12px;
+      box-shadow: var(--shadow);
+      margin-top: 22px;
+      max-width: 620px;
+    }
+
+    .search-box input {
+      width: 100%;
+      border: 0;
+      outline: none;
+      min-height: 34px;
+      color: var(--ink);
+      background: transparent;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .faq-item {
+      padding: 16px;
+    }
+
+    .faq-item[hidden],
+    .search-empty[hidden] {
+      display: none;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .pill {
+      display: inline-flex;
+      min-height: 32px;
+      align-items: center;
+      padding: 5px 10px;
+      border-radius: var(--radius);
+      background: var(--primary-soft);
+      color: #1d4ed8;
+      font-size: 0.86rem;
+      font-weight: 750;
+    }
+
+    .footer {
+      margin-top: 34px;
+      padding: 28px 0 38px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    svg {
+      flex: 0 0 auto;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .grid.three,
+      .grid.two {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .shell {
+        width: min(100% - 22px, 1160px);
+      }
+
+      .nav a,
+      .lang-button {
+        padding: 8px 10px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#content" class="skip-link" data-i18n="skip">Bo qua dieu huong</a>
+
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="#top" aria-label="OmniGemLevel home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" role="img" aria-label="Gem icon">
+            <path d="M6.2 4h11.6l4 5.2L12 21 2.2 9.2 6.2 4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2.5 9.2h19M8 4l4 17 4-17" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span>OmniGemLevel</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#quick-start" data-i18n="nav_quick">Bat dau</a>
+        <a href="#config" data-i18n="nav_config">Cau hinh</a>
+        <a href="#behavior" data-i18n="nav_behavior">Co che</a>
+        <a href="#faq" data-i18n="nav_faq">FAQ</a>
+        <button class="lang-button" type="button" id="langToggle" aria-label="Switch language">EN</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero" id="top">
+      <div class="shell hero-grid">
+        <div>
+          <span class="eyebrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3 4 7v6c0 5 3.5 7.5 8 9 4.5-1.5 8-4 8-9V7l-8-4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="m9 12 2 2 4-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span data-i18n="eyebrow">Wiki su dung cho admin MMOItems</span>
+          </span>
+          <h1 data-i18n="hero_title">Nang cap ngoc cung loai cung cap, khong chiem them slot.</h1>
+          <p class="hero-copy" data-i18n="hero_copy">OmniGemLevel them stat GEM_ID_LEVEL cho gem stone cua MMOItems. Khi nguoi choi keo vien gem trung id va trung level vao item da co gem do, addon nang gem cu len level tiep theo.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#quick-start">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span data-i18n="cta_start">Doc cach dung</span>
+            </a>
+            <a class="button secondary" href="#examples">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <span data-i18n="cta_examples">Xem vi du</span>
+            </a>
+          </div>
+          <label class="search-box" for="wikiSearch">
+            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m21 21-4.3-4.3M10.8 18a7.2 7.2 0 1 1 0-14.4 7.2 7.2 0 0 1 0 14.4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <input id="wikiSearch" type="search" data-i18n-placeholder="search_placeholder" placeholder="Tim: satthuong_1, max-level, GEM_ID_LEVEL">
+          </label>
+        </div>
+        <div class="visual-card" aria-label="Gem upgrade flow diagram">
+          <svg class="diagram" viewBox="0 0 640 430" role="img" aria-labelledby="diagramTitle diagramDesc">
+            <title id="diagramTitle">OmniGemLevel upgrade flow</title>
+            <desc id="diagramDesc">A diagram showing same gem level upgrade and different gem occupying another socket.</desc>
+            <rect x="18" y="18" width="604" height="394" rx="8" fill="#f8fafc" stroke="#d7e0ea"/>
+            <rect x="64" y="68" width="180" height="68" rx="8" fill="#dbeafe" stroke="#93c5fd"/>
+            <text x="154" y="98" text-anchor="middle" fill="#1e3a8a" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">satthuong_1</text>
+            <text x="154" y="120" text-anchor="middle" fill="#475569" font-family="Segoe UI, sans-serif" font-size="12">cursor gem</text>
+            <path d="M250 102h90" stroke="#2563eb" stroke-width="3" stroke-linecap="round"/>
+            <path d="m330 92 14 10-14 10" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="370" y="54" width="200" height="96" rx="8" fill="#fff" stroke="#cbd5e1"/>
+            <text x="470" y="82" text-anchor="middle" fill="#132033" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">Item sockets</text>
+            <rect x="398" y="102" width="68" height="28" rx="5" fill="#dcfce7" stroke="#86efac"/>
+            <text x="432" y="121" text-anchor="middle" fill="#166534" font-family="Segoe UI, sans-serif" font-size="12">sat_1</text>
+            <rect x="478" y="102" width="68" height="28" rx="5" fill="#f1f5f9" stroke="#cbd5e1"/>
+            <text x="512" y="121" text-anchor="middle" fill="#64748b" font-family="Segoe UI, sans-serif" font-size="12">empty</text>
+            <path d="M470 158v56" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+            <path d="m460 204 10 14 10-14" fill="none" stroke="#f97316" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="352" y="230" width="236" height="78" rx="8" fill="#fff7ed" stroke="#fed7aa"/>
+            <text x="470" y="260" text-anchor="middle" fill="#9a3412" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">Upgrade same slot</text>
+            <rect x="418" y="276" width="104" height="28" rx="5" fill="#ffedd5" stroke="#fdba74"/>
+            <text x="470" y="295" text-anchor="middle" fill="#9a3412" font-family="Segoe UI, sans-serif" font-size="12">satthuong_2</text>
+            <rect x="68" y="248" width="196" height="78" rx="8" fill="#fff" stroke="#cbd5e1"/>
+            <text x="166" y="278" text-anchor="middle" fill="#132033" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">khac id/cap</text>
+            <text x="166" y="302" text-anchor="middle" fill="#64748b" font-family="Segoe UI, sans-serif" font-size="13">native MMOItems</text>
+            <path d="M268 288h66" stroke="#64748b" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 8"/>
+            <path d="m324 278 14 10-14 10" fill="none" stroke="#64748b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="quick-start">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <h2 data-i18n="quick_title">Bat dau nhanh</h2>
+            <p data-i18n="quick_copy">Dung khi ban da co server Paper/Folia voi MMOItems va MythicLib. Day la huong dan su dung plugin, khong phai huong dan build tu source.</p>
+          </div>
+        </div>
+        <div class="steps">
+          <div class="step search-item" data-search="install jar plugin plugins folder mmoitems mythiclib restart">
+            <div>
+              <h3 data-i18n="step_1_title">Dat jar vao server</h3>
+              <p data-i18n="step_1_copy">Dat OmniGemLevel.jar vao thu muc plugins, dam bao MMOItems va MythicLib da co san, sau do restart server.</p>
+            </div>
+          </div>
+          <div class="step search-item" data-search="configure config max level map satthuong levels">
+            <div>
+              <h3 data-i18n="step_2_title">Map gem trong config</h3>
+              <p data-i18n="step_2_copy">Khai bao tung dong gem theo gem id. Mac dinh max level la 5, nhung moi gem co the override bang max-level rieng.</p>
+            </div>
+          </div>
+          <div class="step search-item" data-search="mmoitems edit gem_id_level stat satthuong_1">
+            <div>
+              <h3 data-i18n="step_3_title">Gan stat GEM_ID_LEVEL vao gem stone</h3>
+              <p data-i18n="step_3_copy">Trong MMOItems editor, them stat GEM_ID_LEVEL cho tung gem stone va nhap format nhu satthuong_1, satthuong_2.</p>
+            </div>
+          </div>
+          <div class="step search-item" data-search="drag drop upgrade same id same level slot">
+            <div>
+              <h3 data-i18n="step_4_title">Nguoi choi drag/drop de nang cap</h3>
+              <p data-i18n="step_4_copy">Neu item da co satthuong_1 va nguoi choi keo them satthuong_1 vao item, plugin nang slot cu thanh satthuong_2.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="config">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <h2 data-i18n="config_title">Cau hinh plugin</h2>
+            <p data-i18n="config_copy">Config map giup ban dung id MMOItems tuy y, khong bi bat buoc phai dat item id dung theo ten stat.</p>
+          </div>
+        </div>
+        <div class="grid two">
+          <div class="card search-item" data-search="default max level max-level override">
+            <span class="icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24">
+                <path d="M12 3v18M7 8l5-5 5 5M7 16l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <h3 data-i18n="config_card_1_title">Max level</h3>
+            <p data-i18n="config_card_1_copy">default-max-level ap dung cho tat ca gem. Neu mot gem co max-level rieng, gia tri rieng se duoc uu tien.</p>
+          </div>
+          <div class="card search-item" data-search="resolver convention fallback id-case upper lower preserve">
+            <span class="icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24">
+                <path d="M4 7h10a4 4 0 0 1 0 8H7M7 11l-4 4 4 4M20 7h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <h3 data-i18n="config_card_2_title">Resolver fallback</h3>
+            <p data-i18n="config_card_2_copy">Neu convention-fallback bat, plugin co the tu doan item id theo dang GEMID_LEVEL khi config levels khong co entry.</p>
+          </div>
+        </div>
+        <div class="code-block" id="examples">
+          <button class="copy-button" type="button" data-copy="configExample" data-i18n="copy">Copy</button>
+          <pre><code id="configExample">default-max-level: 5
+
+resolver:
+  convention-fallback: true
+  id-case: upper # upper | lower | preserve
+
+gems:
+  satthuong:
+    max-level: 5
+    type: GEM_STONE
+    levels:
+      1: SATTHUONG_1
+      2: SATTHUONG_2
+      3: SATTHUONG_3
+      4: SATTHUONG_4
+      5: SATTHUONG_5
+
+  phongthu:
+    max-level: 4
+    type: GEM_STONE
+    levels:
+      1: DEFENSE_GEM_I
+      2: DEFENSE_GEM_II
+      3: DEFENSE_GEM_III
+      4: DEFENSE_GEM_IV</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="mmoitems">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <h2 data-i18n="mi_title">Cach khai bao trong MMOItems</h2>
+            <p data-i18n="mi_copy">Moi gem template can co GEM_ID_LEVEL dung cap cua no. Cac stat damage, defense, socket color, success rate van la cua MMOItems.</p>
+          </div>
+        </div>
+        <div class="grid two">
+          <div class="card search-item" data-search="gem_id_level mmoitems editor satthuong_1">
+            <h3 data-i18n="mi_editor_title">Trong editor</h3>
+            <p data-i18n="mi_editor_copy">Mo MMOItems edit GUI, chon gem stone, bam stat Gem ID Level, nhap satthuong_1. Lap lai cho satthuong_2, satthuong_3.</p>
+            <div class="pill-row">
+              <span class="pill">satthuong_1</span>
+              <span class="pill">satthuong_2</span>
+              <span class="pill">satthuong_3</span>
+            </div>
+          </div>
+          <div class="card search-item" data-search="yaml gem-id-level examples">
+            <h3 data-i18n="mi_yaml_title">Trong YAML</h3>
+            <p data-i18n="mi_yaml_copy">Neu sua file truc tiep, key thuong se la gem-id-level theo path cua stat MMOItems.</p>
+            <div class="code-block">
+              <button class="copy-button" type="button" data-copy="yamlExample" data-i18n="copy">Copy</button>
+              <pre><code id="yamlExample">SATTHUONG_1:
+  base:
+    material: EMERALD
+    name: '&aSat Thuong Gem I'
+    gem-color: Red
+    gem-id-level: satthuong_1
+    attack-damage: 2
+
+SATTHUONG_2:
+  base:
+    material: EMERALD
+    name: '&aSat Thuong Gem II'
+    gem-color: Red
+    gem-id-level: satthuong_2
+    attack-damage: 4</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="notice ok search-item" data-search="gemstonestat not merge gem_id_level target item">
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div>
+            <strong data-i18n="mi_notice_title">GEM_ID_LEVEL chi danh dau gem.</strong>
+            <p data-i18n="mi_notice_copy">Stat nay khong phai stat cong suc manh cho item dich. Item dich nhan stat that tu gem level moi thong qua MMOItems native apply.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="behavior">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <h2 data-i18n="behavior_title">Bang hanh vi drag/drop</h2>
+            <p data-i18n="behavior_copy">Quy tac cot loi: chi upgrade khi cung gem id va cung level. Moi truong hop con lai de MMOItems xu ly binh thuong.</p>
+          </div>
+        </div>
+        <div class="table-wrap search-item" data-search="behavior matrix same id same level different level different id">
+          <table>
+            <thead>
+              <tr>
+                <th data-i18n="table_cursor">Gem tren chuot</th>
+                <th data-i18n="table_target">Gem da gan tren item</th>
+                <th data-i18n="table_result">Ket qua</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>satthuong_1</code></td>
+                <td data-i18n="table_empty">Chua co</td>
+                <td data-i18n="table_native">MMOItems apply vao slot trong.</td>
+              </tr>
+              <tr>
+                <td><code>satthuong_1</code></td>
+                <td><code>satthuong_1</code></td>
+                <td data-i18n="table_upgrade_2">Upgrade slot cu thanh satthuong_2.</td>
+              </tr>
+              <tr>
+                <td><code>satthuong_2</code></td>
+                <td><code>satthuong_2</code></td>
+                <td data-i18n="table_upgrade_3">Upgrade slot cu thanh satthuong_3.</td>
+              </tr>
+              <tr>
+                <td><code>satthuong_1</code></td>
+                <td><code>satthuong_2</code></td>
+                <td data-i18n="table_next_slot">Khac level, khong de. MMOItems tu vao slot tiep theo neu co.</td>
+              </tr>
+              <tr>
+                <td><code>phongthu_1</code></td>
+                <td><code>satthuong_1</code></td>
+                <td data-i18n="table_diff_id">Khac id, khong de. MMOItems tu vao slot tiep theo neu co.</td>
+              </tr>
+              <tr>
+                <td><code>satthuong_5</code></td>
+                <td><code>satthuong_5</code></td>
+                <td data-i18n="table_max">Dang max level, khong consume gem.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <h2 data-i18n="faq_title">FAQ</h2>
+            <p data-i18n="faq_copy">Nhung cau hoi hay gap khi setup gem level.</p>
+          </div>
+        </div>
+        <div class="faq-list" id="faqList">
+          <article class="faq-item search-item" data-search="does it consume gem max missing template">
+            <h3 data-i18n="faq_1_q">Neu thieu template level tiep theo thi sao?</h3>
+            <p data-i18n="faq_1_a">Plugin khong consume gem tren chuot va khong sua item. Hay kiem tra config levels va item id trong MMOItems.</p>
+          </article>
+          <article class="faq-item search-item" data-search="success rate guaranteed upgrade">
+            <h3 data-i18n="faq_2_q">Upgrade co tinh success-rate cua gem khong?</h3>
+            <p data-i18n="faq_2_a">Khong. Upgrade same id + same level la guaranteed neu co template level tiep theo hop le.</p>
+          </article>
+          <article class="faq-item search-item" data-search="different level same id next slot">
+            <h3 data-i18n="faq_3_q">Cung id nhung khac level co bi de khong?</h3>
+            <p data-i18n="faq_3_a">Khong. Vi du satthuong_1 vao item co satthuong_2 se de MMOItems apply vao slot tiep theo neu item con slot hop le.</p>
+          </article>
+          <article class="faq-item search-item" data-search="socket color restrictions mmoitems native">
+            <h3 data-i18n="faq_4_q">Socket color va item type restriction con hoat dong khong?</h3>
+            <p data-i18n="faq_4_a">Co. Truong hop khong upgrade duoc xu ly boi MMOItems native. Truong hop upgrade mo lai socket cu roi apply gem level moi bang API native cua MMOItems.</p>
+          </article>
+        </div>
+        <p class="search-empty" id="searchEmpty" hidden data-i18n="search_empty">Khong tim thay muc phu hop.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <span>OmniGemLevel</span>
+      <span data-i18n="footer_copy">Usage wiki for MMOItems gemstone upgrade flow.</span>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      vi: {
+        skip: "Bo qua dieu huong",
+        nav_quick: "Bat dau",
+        nav_config: "Cau hinh",
+        nav_behavior: "Co che",
+        nav_faq: "FAQ",
+        eyebrow: "Wiki su dung cho admin MMOItems",
+        hero_title: "Nang cap ngoc cung loai cung cap, khong chiem them slot.",
+        hero_copy: "OmniGemLevel them stat GEM_ID_LEVEL cho gem stone cua MMOItems. Khi nguoi choi keo vien gem trung id va trung level vao item da co gem do, addon nang gem cu len level tiep theo.",
+        cta_start: "Doc cach dung",
+        cta_examples: "Xem vi du",
+        search_placeholder: "Tim: satthuong_1, max-level, GEM_ID_LEVEL",
+        quick_title: "Bat dau nhanh",
+        quick_copy: "Dung khi ban da co server Paper/Folia voi MMOItems va MythicLib. Day la huong dan su dung plugin, khong phai huong dan build tu source.",
+        step_1_title: "Dat jar vao server",
+        step_1_copy: "Dat OmniGemLevel.jar vao thu muc plugins, dam bao MMOItems va MythicLib da co san, sau do restart server.",
+        step_2_title: "Map gem trong config",
+        step_2_copy: "Khai bao tung dong gem theo gem id. Mac dinh max level la 5, nhung moi gem co the override bang max-level rieng.",
+        step_3_title: "Gan stat GEM_ID_LEVEL vao gem stone",
+        step_3_copy: "Trong MMOItems editor, them stat GEM_ID_LEVEL cho tung gem stone va nhap format nhu satthuong_1, satthuong_2.",
+        step_4_title: "Nguoi choi drag/drop de nang cap",
+        step_4_copy: "Neu item da co satthuong_1 va nguoi choi keo them satthuong_1 vao item, plugin nang slot cu thanh satthuong_2.",
+        config_title: "Cau hinh plugin",
+        config_copy: "Config map giup ban dung id MMOItems tuy y, khong bi bat buoc phai dat item id dung theo ten stat.",
+        config_card_1_title: "Max level",
+        config_card_1_copy: "default-max-level ap dung cho tat ca gem. Neu mot gem co max-level rieng, gia tri rieng se duoc uu tien.",
+        config_card_2_title: "Resolver fallback",
+        config_card_2_copy: "Neu convention-fallback bat, plugin co the tu doan item id theo dang GEMID_LEVEL khi config levels khong co entry.",
+        copy: "Copy",
+        mi_title: "Cach khai bao trong MMOItems",
+        mi_copy: "Moi gem template can co GEM_ID_LEVEL dung cap cua no. Cac stat damage, defense, socket color, success rate van la cua MMOItems.",
+        mi_editor_title: "Trong editor",
+        mi_editor_copy: "Mo MMOItems edit GUI, chon gem stone, bam stat Gem ID Level, nhap satthuong_1. Lap lai cho satthuong_2, satthuong_3.",
+        mi_yaml_title: "Trong YAML",
+        mi_yaml_copy: "Neu sua file truc tiep, key thuong se la gem-id-level theo path cua stat MMOItems.",
+        mi_notice_title: "GEM_ID_LEVEL chi danh dau gem.",
+        mi_notice_copy: "Stat nay khong phai stat cong suc manh cho item dich. Item dich nhan stat that tu gem level moi thong qua MMOItems native apply.",
+        behavior_title: "Bang hanh vi drag/drop",
+        behavior_copy: "Quy tac cot loi: chi upgrade khi cung gem id va cung level. Moi truong hop con lai de MMOItems xu ly binh thuong.",
+        table_cursor: "Gem tren chuot",
+        table_target: "Gem da gan tren item",
+        table_result: "Ket qua",
+        table_empty: "Chua co",
+        table_native: "MMOItems apply vao slot trong.",
+        table_upgrade_2: "Upgrade slot cu thanh satthuong_2.",
+        table_upgrade_3: "Upgrade slot cu thanh satthuong_3.",
+        table_next_slot: "Khac level, khong de. MMOItems tu vao slot tiep theo neu co.",
+        table_diff_id: "Khac id, khong de. MMOItems tu vao slot tiep theo neu co.",
+        table_max: "Dang max level, khong consume gem.",
+        faq_title: "FAQ",
+        faq_copy: "Nhung cau hoi hay gap khi setup gem level.",
+        faq_1_q: "Neu thieu template level tiep theo thi sao?",
+        faq_1_a: "Plugin khong consume gem tren chuot va khong sua item. Hay kiem tra config levels va item id trong MMOItems.",
+        faq_2_q: "Upgrade co tinh success-rate cua gem khong?",
+        faq_2_a: "Khong. Upgrade same id + same level la guaranteed neu co template level tiep theo hop le.",
+        faq_3_q: "Cung id nhung khac level co bi de khong?",
+        faq_3_a: "Khong. Vi du satthuong_1 vao item co satthuong_2 se de MMOItems apply vao slot tiep theo neu item con slot hop le.",
+        faq_4_q: "Socket color va item type restriction con hoat dong khong?",
+        faq_4_a: "Co. Truong hop khong upgrade duoc xu ly boi MMOItems native. Truong hop upgrade mo lai socket cu roi apply gem level moi bang API native cua MMOItems.",
+        search_empty: "Khong tim thay muc phu hop.",
+        footer_copy: "Usage wiki for MMOItems gemstone upgrade flow."
+      },
+      en: {
+        skip: "Skip navigation",
+        nav_quick: "Quick start",
+        nav_config: "Config",
+        nav_behavior: "Behavior",
+        nav_faq: "FAQ",
+        eyebrow: "Usage wiki for MMOItems admins",
+        hero_title: "Upgrade same-id same-level gems without taking another slot.",
+        hero_copy: "OmniGemLevel adds the GEM_ID_LEVEL stat to MMOItems gem stones. When a player drags a gem with the same id and same level onto an item already holding it, the addon upgrades the old gem to the next level.",
+        cta_start: "Read usage",
+        cta_examples: "View examples",
+        search_placeholder: "Search: satthuong_1, max-level, GEM_ID_LEVEL",
+        quick_title: "Quick start",
+        quick_copy: "Use this after your Paper/Folia server already has MMOItems and MythicLib. This is a usage guide, not a source build guide.",
+        step_1_title: "Place the jar on your server",
+        step_1_copy: "Put OmniGemLevel.jar in the plugins folder, make sure MMOItems and MythicLib are installed, then restart the server.",
+        step_2_title: "Map gems in config",
+        step_2_copy: "Declare each gem line by gem id. The global max level defaults to 5, and each gem can override it with max-level.",
+        step_3_title: "Add GEM_ID_LEVEL to gem stones",
+        step_3_copy: "In the MMOItems editor, add Gem ID Level to each gem stone and enter values like satthuong_1, satthuong_2.",
+        step_4_title: "Players drag/drop to upgrade",
+        step_4_copy: "If an item already has satthuong_1 and the player drags another satthuong_1 onto it, the old slot becomes satthuong_2.",
+        config_title: "Plugin config",
+        config_copy: "The config map lets you use any MMOItems item id. Your item ids do not need to match the stat id.",
+        config_card_1_title: "Max level",
+        config_card_1_copy: "default-max-level applies to all gems. If a gem has its own max-level, that value wins.",
+        config_card_2_title: "Resolver fallback",
+        config_card_2_copy: "When convention-fallback is enabled, the plugin can infer item ids like GEMID_LEVEL when config levels has no entry.",
+        copy: "Copy",
+        mi_title: "MMOItems setup",
+        mi_copy: "Each gem template needs GEM_ID_LEVEL for its own level. Damage, defense, socket color, and success rate remain normal MMOItems stats.",
+        mi_editor_title: "In the editor",
+        mi_editor_copy: "Open the MMOItems edit GUI, select the gem stone, click Gem ID Level, enter satthuong_1. Repeat for satthuong_2 and satthuong_3.",
+        mi_yaml_title: "In YAML",
+        mi_yaml_copy: "If you edit files directly, the key is usually gem-id-level because it follows the MMOItems stat path.",
+        mi_notice_title: "GEM_ID_LEVEL only marks the gem.",
+        mi_notice_copy: "This stat is not a power stat for the target item. The target receives real stats from the new level gem through MMOItems native apply.",
+        behavior_title: "Drag/drop behavior",
+        behavior_copy: "Core rule: upgrade only when gem id and level both match. All other cases are left to MMOItems native behavior.",
+        table_cursor: "Cursor gem",
+        table_target: "Applied gem on item",
+        table_result: "Result",
+        table_empty: "None",
+        table_native: "MMOItems applies to an empty socket.",
+        table_upgrade_2: "Upgrade the old slot to satthuong_2.",
+        table_upgrade_3: "Upgrade the old slot to satthuong_3.",
+        table_next_slot: "Different level, no overwrite. MMOItems uses the next slot if available.",
+        table_diff_id: "Different id, no overwrite. MMOItems uses the next slot if available.",
+        table_max: "Already max level, cursor gem is not consumed.",
+        faq_title: "FAQ",
+        faq_copy: "Common questions when setting up gem levels.",
+        faq_1_q: "What happens if the next-level template is missing?",
+        faq_1_a: "The plugin does not consume the cursor gem and does not change the item. Check config levels and the MMOItems item id.",
+        faq_2_q: "Does upgrade use the gem success-rate?",
+        faq_2_a: "No. Same-id same-level upgrade is guaranteed when the next-level template is valid.",
+        faq_3_q: "Will same id but different level overwrite?",
+        faq_3_a: "No. For example, satthuong_1 on an item with satthuong_2 is passed to MMOItems for the next valid socket.",
+        faq_4_q: "Do socket color and item type restrictions still work?",
+        faq_4_a: "Yes. Non-upgrade cases use MMOItems native handling. Upgrade cases reopen the old socket and apply the next-level gem through MMOItems native API.",
+        search_empty: "No matching section found.",
+        footer_copy: "Usage wiki for MMOItems gemstone upgrade flow."
+      }
+    };
+
+    let currentLang = localStorage.getItem("omniGemLevelLang") || "vi";
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem("omniGemLevelLang", lang);
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-i18n]").forEach((node) => {
+        const key = node.getAttribute("data-i18n");
+        if (translations[lang][key]) node.textContent = translations[lang][key];
+      });
+      document.querySelectorAll("[data-i18n-placeholder]").forEach((node) => {
+        const key = node.getAttribute("data-i18n-placeholder");
+        if (translations[lang][key]) node.setAttribute("placeholder", translations[lang][key]);
+      });
+      document.getElementById("langToggle").textContent = lang === "vi" ? "EN" : "VI";
+      filterSearch();
+    }
+
+    function filterSearch() {
+      const input = document.getElementById("wikiSearch");
+      const query = input.value.trim().toLowerCase();
+      const items = Array.from(document.querySelectorAll(".search-item"));
+      let visible = 0;
+
+      items.forEach((item) => {
+        const haystack = `${item.textContent} ${item.dataset.search || ""}`.toLowerCase();
+        const match = !query || haystack.includes(query);
+        item.hidden = !match;
+        if (match) visible += 1;
+      });
+
+      document.getElementById("searchEmpty").hidden = visible !== 0;
+    }
+
+    document.getElementById("langToggle").addEventListener("click", () => {
+      applyLanguage(currentLang === "vi" ? "en" : "vi");
+    });
+
+    document.getElementById("wikiSearch").addEventListener("input", filterSearch);
+
+    document.querySelectorAll("[data-copy]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const id = button.getAttribute("data-copy");
+        const source = document.getElementById(id);
+        if (!source) return;
+        await navigator.clipboard.writeText(source.textContent);
+        const oldLabel = button.textContent;
+        button.textContent = currentLang === "vi" ? "Da copy" : "Copied";
+        window.setTimeout(() => {
+          button.textContent = oldLabel;
+        }, 1300);
+      });
+    });
+
+    applyLanguage(currentLang);
+  </script>
+</body>
+</html>

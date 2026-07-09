@@ -1,0 +1,23 @@
+name: OmniGemLevel
+version: 1.0.0
+main: com.salyvn.omnigemlevel.OmniGemLevelPlugin
+api-version: "1.21"
+author: SalyVn
+description: MMOItems gemstone level upgrade addon
+
+dependencies:
+  server:
+    MMOItems:
+      load: BEFORE
+      required: true
+    MythicLib:
+      load: BEFORE
+      required: true
+
+permissions:
+  omnigemlevel.use:
+    description: Allows gemstone level upgrades by drag-drop
+    default: true
+  omnigemlevel.admin:
+    description: Allows admin actions for OmniGemLevel
+    default: op

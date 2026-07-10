@@ -36,7 +36,7 @@ If both family and level match, the plugin finds the configured MMOItems templat
 [B]3. Upgrade the existing socket[/B]
 The old socket receives the next-level gem while the remaining sockets stay free.
 
-[CENTER][B][COLOR=#4CE0A0]satthuong_1 + satthuong_1 = satthuong_2[/COLOR][/B][/CENTER]
+[CENTER][B][COLOR=#4CE0A0]damage_1 + damage_1 = damage_2[/COLOR][/B][/CENTER]
 
 [SIZE=5][B][COLOR=#62A9FF]SAFE MATCHING RULES[/COLOR][/B][/SIZE]
 
@@ -63,15 +63,15 @@ resolver:
   id-case: upper
 
 gems:
-  satthuong:
+  damage:
     max-level: 5
     type: GEM_STONE
     levels:
-      1: SATTHUONG_1
-      2: SATTHUONG_2
-      3: SATTHUONG_3
-      4: SATTHUONG_4
-      5: SATTHUONG_5
+      1: DAMAGE_1
+      2: DAMAGE_2
+      3: DAMAGE_3
+      4: DAMAGE_4
+      5: DAMAGE_5
 [/CODE]
 
 [B]Global default:[/B] applies to every gem family without its own cap.
@@ -85,17 +85,17 @@ gems:
 [B]Add the custom stat to every gemstone template:[/B]
 
 [CODE=yaml]
-SATTHUONG_1:
+DAMAGE_1:
   base:
     material: EMERALD
-    name: '&aDamage Gem I'
-    gem-id-level: satthuong_1
+    name: '&aAttack Gem I'
+    gem-id-level: damage_1
 
-SATTHUONG_2:
+DAMAGE_2:
   base:
     material: EMERALD
-    name: '&aDamage Gem II'
-    gem-id-level: satthuong_2
+    name: '&aAttack Gem II'
+    gem-id-level: damage_2
 [/CODE]
 
 [B]GEM_ID_LEVEL identifies the gem only.[/B]

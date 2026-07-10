@@ -7,12 +7,10 @@
   .css-banner-fusion { right: 3.5%; gap: 9px; }
   .css-mini-card { min-width: 106px; padding: 15px 10px 12px; }
   .css-mini-card .css-gem { width: 66px; height: 76px; }
-  .css-mini-card .css-gem i { top: 12px; left: 18px; width: 10px; height: 28px; }
   .css-overview-visual { gap: 20px; padding: 36px; }
   .css-overview-fusion { gap: 10px; }
   .css-gem-card { min-width: 112px; padding: 17px 10px 13px; }
   .css-gem-card .css-gem { width: 65px; height: 75px; }
-  .css-gem-card .css-gem i { top: 12px; left: 18px; width: 10px; height: 28px; }
   .css-mechanics-visual { grid-template-columns: minmax(0, 1fr) 130px minmax(0, 1fr); }
   .css-socket-column { padding: 28px 22px; }
   .css-socket { min-height: 94px; }
@@ -37,7 +35,6 @@
   .css-banner-fusion { right: 6%; bottom: 47px; top: auto; gap: 5px; transform: none; }
   .css-mini-card { min-width: 69px; gap: 5px; border-top-width: 3px; padding: 8px 4px 7px; }
   .css-mini-card .css-gem { width: 39px; height: 45px; }
-  .css-mini-card .css-gem i { top: 7px; left: 10px; width: 6px; height: 17px; }
   .css-mini-card code { font-size: .45rem; }
   .css-banner-fusion .css-flow-arrow { width: 25px; }
   .css-banner-fusion .css-math { font-size: .95rem; }
@@ -49,7 +46,6 @@
   .css-overview-fusion { gap: 5px; }
   .css-gem-card { min-width: 76px; padding: 12px 4px 8px; }
   .css-gem-card .css-gem { width: 44px; height: 51px; }
-  .css-gem-card .css-gem i { top: 8px; left: 12px; width: 7px; height: 19px; }
   .css-gem-card code { font-size: .43rem; }
   .css-gem-card small { font-size: .43rem; }
   .css-gem-card mark { right: 2px; padding: 2px 3px; font-size: .39rem; }
@@ -91,7 +87,7 @@
   .css-workflow-visual { grid-template-columns: 1fr; gap: 0; padding: 24px; }
   .css-workflow-step { min-height: 0; padding: 23px; }
   .css-workflow-arrow { width: 3px; height: 34px; justify-self: center; margin: 0; }
-  .css-workflow-arrow::after { right: -6px; top: auto; bottom: -1px; transform: rotate(135deg); }
+  .css-workflow-arrow::after { right: 50%; top: auto; bottom: -1px; transform: translateX(50%) rotate(135deg); }
   .css-editor-visual, .css-map-visual, .css-upgrade-visual { min-height: 128px; }
 }
 
@@ -103,13 +99,11 @@
   .css-banner-fusion { right: 5%; }
   .css-mini-card { min-width: 61px; }
   .css-mini-card .css-gem { width: 35px; height: 40px; }
-  .css-mini-card .css-gem i { top: 6px; left: 9px; width: 5px; height: 15px; }
   .css-banner-fusion .css-flow-arrow { width: 16px; }
   .css-banner-foot { gap: 6px; font-size: .43rem; }
   .css-showcase { padding: 19px; }
   .css-gem-card { min-width: 63px; }
   .css-gem-card .css-gem { width: 38px; height: 44px; }
-  .css-gem-card .css-gem i { top: 7px; left: 10px; width: 6px; height: 16px; }
   .css-overview-fusion .css-flow-arrow { width: 17px; }
   .css-overview-facts { flex-direction: column; gap: 4px; }
   .css-socket-column { padding: 22px 13px; }
@@ -117,7 +111,6 @@
   .css-socket-grid { gap: 4px; }
   .css-socket { min-height: 72px; }
   .css-socket .gem-small { width: 31px; height: 36px; }
-  .css-socket .gem-small i { top: 6px; left: 8px; width: 5px; height: 13px; }
   .css-visual-label { font-size: .64rem; }
   .css-visual-label span { font-size: .61rem; }
   .css-terminal-bar { grid-template-columns: 45px 1fr auto; padding-inline: 10px; }

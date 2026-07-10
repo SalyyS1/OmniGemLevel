@@ -10,28 +10,28 @@ class GemTemplateResolverTest {
     fun `config map resolves exact type and id`() {
         val resolver = resolver(
             gems = mapOf(
-                "satthuong" to GemLevelConfig.GemEntry(
+                "damage" to GemLevelConfig.GemEntry(
                     type = "GEM_STONE",
                     maxLevel = 5,
-                    levels = mapOf(2 to "SAT_DAMAGE_TWO")
+                    levels = mapOf(2 to "DAMAGE_TWO")
                 )
             )
         )
 
-        val ref = resolver.resolve("satthuong", 2)
+        val ref = resolver.resolve("damage", 2)
 
         assertEquals("GEM_STONE", ref?.type)
-        assertEquals("SAT_DAMAGE_TWO", ref?.id)
+        assertEquals("DAMAGE_TWO", ref?.id)
     }
 
     @Test
     fun `per gem max level overrides global default`() {
         val resolver = resolver(
             defaultMaxLevel = 5,
-            gems = mapOf("satthuong" to GemLevelConfig.GemEntry("GEM_STONE", 3, emptyMap()))
+            gems = mapOf("damage" to GemLevelConfig.GemEntry("GEM_STONE", 3, emptyMap()))
         )
 
-        assertEquals(3, resolver.maxLevel("satthuong"))
+        assertEquals(3, resolver.maxLevel("damage"))
     }
 
     @Test
@@ -45,16 +45,16 @@ class GemTemplateResolverTest {
     fun `convention fallback uses configured case`() {
         val resolver = resolver(idCase = GemLevelConfig.IdCase.UPPER)
 
-        val ref = resolver.resolve("satthuong", 4)
+        val ref = resolver.resolve("damage", 4)
 
-        assertEquals("SATTHUONG_4", ref?.id)
+        assertEquals("DAMAGE_4", ref?.id)
     }
 
     @Test
     fun `disabled convention fallback returns null when map misses`() {
         val resolver = resolver(conventionFallback = false)
 
-        assertNull(resolver.resolve("satthuong", 4))
+        assertNull(resolver.resolve("damage", 4))
     }
 
     private fun resolver(

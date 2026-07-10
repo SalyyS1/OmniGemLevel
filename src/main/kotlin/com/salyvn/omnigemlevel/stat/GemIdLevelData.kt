@@ -20,7 +20,7 @@ data class GemIdLevelData(
 
             val separator = value.lastIndexOf('_')
             require(separator > 0 && separator < value.lastIndex) {
-                "Format must be <gem_id>_<level>, example: satthuong_3"
+                "Format must be <gem_id>_<level>, example: damage_3"
             }
 
             val id = value.substring(0, separator).trim()

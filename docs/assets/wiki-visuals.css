@@ -43,7 +43,7 @@
 .css-gem::before {
   content: "";
   position: absolute;
-  inset: 9px 18px 21px 17px;
+  inset: 9% 21% 22% 20%;
   clip-path: inherit;
   background: linear-gradient(135deg, rgba(255, 255, 255, .45), transparent 42%, rgba(0, 0, 0, .24));
 }
@@ -51,20 +51,20 @@
 .css-gem::after {
   content: "";
   position: absolute;
-  right: 14px;
-  bottom: 13px;
-  width: 12px;
-  height: 13px;
+  right: 16%;
+  bottom: 14%;
+  width: 14%;
+  height: 14%;
   transform: rotate(45deg);
   background: rgba(0, 0, 0, .28);
 }
 
 .css-gem i {
   position: absolute;
-  top: 15px;
-  left: 22px;
-  width: 13px;
-  height: 35px;
+  top: 15%;
+  left: 26%;
+  width: 15%;
+  height: 36%;
   transform: skew(-20deg);
   background: rgba(255, 255, 255, .74);
 }
@@ -79,35 +79,14 @@
   height: 44px;
 }
 
-.gem-brand i {
-  top: 7px;
-  left: 10px;
-  width: 6px;
-  height: 18px;
-}
-
 .gem-small {
   width: 41px;
   height: 48px;
 }
 
-.gem-small i {
-  top: 8px;
-  left: 11px;
-  width: 6px;
-  height: 17px;
-}
-
 .gem-tiny {
   width: 31px;
   height: 36px;
-}
-
-.gem-tiny i {
-  top: 6px;
-  left: 8px;
-  width: 5px;
-  height: 13px;
 }
 
 .gem-dot {
@@ -133,12 +112,12 @@
   content: "";
   position: absolute;
   right: -1px;
-  top: -6px;
+  top: 50%;
   width: 14px;
   height: 14px;
   border-top: 3px solid var(--gold);
   border-right: 3px solid var(--gold);
-  transform: rotate(45deg);
+  transform: translateY(-50%) rotate(45deg);
 }
 
 .css-math {
@@ -371,4 +350,3 @@
   font-family: "JetBrains Mono", monospace;
   font-size: 1rem;
 }
-

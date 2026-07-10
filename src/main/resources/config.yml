@@ -5,15 +5,15 @@ resolver:
   id-case: upper # upper | lower | preserve
 
 gems:
-  satthuong:
+  damage:
     max-level: 5
     type: GEM_STONE
     levels:
-      1: SATTHUONG_1
-      2: SATTHUONG_2
-      3: SATTHUONG_3
-      4: SATTHUONG_4
-      5: SATTHUONG_5
+      1: DAMAGE_1
+      2: DAMAGE_2
+      3: DAMAGE_3
+      4: DAMAGE_4
+      5: DAMAGE_5
 
 messages:
   no-permission: "&cYou do not have permission to upgrade gemstones."

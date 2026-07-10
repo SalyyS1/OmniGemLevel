@@ -37,20 +37,20 @@
         <div class="fusion-line">
           <div class="gem-card level-one">
             <div class="pixel-gem emerald"><span></span></div>
-            <div class="gem-code">satthuong_1</div>
+            <div class="gem-code">damage_1</div>
             <div class="gem-level">LEVEL 01</div>
           </div>
           <div class="math-symbol">+</div>
           <div class="gem-card level-one second">
             <div class="pixel-gem emerald"><span></span></div>
-            <div class="gem-code">satthuong_1</div>
+            <div class="gem-code">damage_1</div>
             <div class="gem-level">LEVEL 01</div>
           </div>
           <div class="fusion-arrow"><span></span></div>
           <div class="gem-card result">
             <div class="result-rays"></div>
             <div class="pixel-gem amber"><span></span></div>
-            <div class="gem-code">satthuong_2</div>
+            <div class="gem-code">damage_2</div>
             <div class="gem-level">LEVEL 02</div>
             <div class="upgrade-stamp">UPGRADED</div>
           </div>
@@ -89,7 +89,7 @@
             <div class="socket-row">
               <div class="socket occupied">
                 <div class="pixel-gem emerald small"><span></span></div>
-                <b>satthuong_1</b>
+                <b>damage_1</b>
               </div>
               <div class="socket empty">EMPTY</div>
               <div class="socket empty">EMPTY</div>
@@ -99,7 +99,7 @@
           <div class="drag-card">
             <div class="cursor-shape"></div>
             <div class="pixel-gem emerald tiny"><span></span></div>
-            <div><b>Player drags</b><code>satthuong_1</code></div>
+            <div><b>Player drags</b><code>damage_1</code></div>
           </div>
         </div>
 
@@ -116,7 +116,7 @@
             <div class="socket-row">
               <div class="socket occupied upgraded">
                 <div class="pixel-gem amber small"><span></span></div>
-                <b>satthuong_2</b>
+                <b>damage_2</b>
                 <i>+1 LEVEL</i>
               </div>
               <div class="socket empty">EMPTY</div>
@@ -163,25 +163,25 @@
         <div class="rule-list">
           <div class="rule-row positive">
             <div class="rule-status"><span class="check-icon"></span></div>
-            <div class="rule-pair"><code>satthuong_1</code><b>+</b><code>satthuong_1</code></div>
+            <div class="rule-pair"><code>damage_1</code><b>+</b><code>damage_1</code></div>
             <div class="rule-result"><small>EXACT MATCH</small><strong>Upgrade existing socket</strong></div>
-            <div class="result-code">satthuong_2</div>
+            <div class="result-code">damage_2</div>
           </div>
           <div class="rule-row neutral">
             <div class="rule-status"><span class="pass-icon"></span></div>
-            <div class="rule-pair"><code>satthuong_1</code><b>+</b><code>satthuong_2</code></div>
+            <div class="rule-pair"><code>damage_1</code><b>+</b><code>damage_2</code></div>
             <div class="rule-result"><small>DIFFERENT LEVEL</small><strong>Pass to MMOItems</strong></div>
             <div class="result-code native">NATIVE FLOW</div>
           </div>
           <div class="rule-row neutral blue-row">
             <div class="rule-status"><span class="pass-icon"></span></div>
-            <div class="rule-pair"><code>satthuong_1</code><b>+</b><code>phongthu_1</code></div>
+            <div class="rule-pair"><code>damage_1</code><b>+</b><code>defense_1</code></div>
             <div class="rule-result"><small>DIFFERENT ID</small><strong>Pass to MMOItems</strong></div>
             <div class="result-code native">NATIVE FLOW</div>
           </div>
           <div class="rule-row blocked">
             <div class="rule-status"><span class="stop-icon"></span></div>
-            <div class="rule-pair"><code>satthuong_5</code><b>+</b><code>satthuong_5</code></div>
+            <div class="rule-pair"><code>damage_5</code><b>+</b><code>damage_5</code></div>
             <div class="rule-result"><small>MAX LEVEL</small><strong>Upgrade blocked</strong></div>
             <div class="result-code maxed">MAXED</div>
           </div>
@@ -226,17 +226,17 @@
           <pre><code><span class="key">default-max-level</span>: <span class="number">5</span>
 
 <span class="key">gems</span>:
-  <span class="family">satthuong</span>:
+  <span class="family">damage</span>:
     <span class="key">max-level</span>: <span class="number">5</span>
     <span class="key">type</span>: <span class="string">GEM_STONE</span>
     <span class="key">levels</span>:
-      <span class="number">1</span>: <span class="string">SATTHUONG_1</span>
-      <span class="number">2</span>: <span class="string">SATTHUONG_2</span>
-      <span class="number">3</span>: <span class="string">SATTHUONG_3</span>
-      <span class="number">4</span>: <span class="string">SATTHUONG_4</span>
-      <span class="number">5</span>: <span class="string">SATTHUONG_5</span>
+      <span class="number">1</span>: <span class="string">DAMAGE_1</span>
+      <span class="number">2</span>: <span class="string">DAMAGE_2</span>
+      <span class="number">3</span>: <span class="string">DAMAGE_3</span>
+      <span class="number">4</span>: <span class="string">DAMAGE_4</span>
+      <span class="number">5</span>: <span class="string">DAMAGE_5</span>
 
-  <span class="family alt">phongthu</span>:
+  <span class="family alt">defense</span>:
     <span class="key">max-level</span>: <span class="number highlight-number">4</span> <span class="comment"># per-gem override</span></code></pre>
           <div class="code-callout"><span></span>ONE CONFIG. UNLIMITED GEM FAMILIES.</div>
         </div>
@@ -272,7 +272,7 @@
           <div class="step-visual stat-editor">
             <div class="editor-title"><span></span>MMOItems Editor</div>
             <div class="editor-row"><small>STAT</small><b>Gem ID Level</b></div>
-            <div class="editor-input">satthuong_1<i></i></div>
+            <div class="editor-input">damage_1<i></i></div>
           </div>
           <div class="step-copy"><b>Add GEM_ID_LEVEL</b><span>Tag each gemstone with its family and level.</span></div>
         </div>
@@ -282,9 +282,9 @@
         <div class="workflow-step step-two">
           <div class="step-number">02</div>
           <div class="step-visual map-visual">
-            <div class="map-line"><code>satthuong_1</code><i></i><b>Lv. 1</b></div>
-            <div class="map-line"><code>satthuong_2</code><i></i><b>Lv. 2</b></div>
-            <div class="map-line"><code>satthuong_3</code><i></i><b>Lv. 3</b></div>
+            <div class="map-line"><code>damage_1</code><i></i><b>Lv. 1</b></div>
+            <div class="map-line"><code>damage_2</code><i></i><b>Lv. 2</b></div>
+            <div class="map-line"><code>damage_3</code><i></i><b>Lv. 3</b></div>
           </div>
           <div class="step-copy"><b>Map level templates</b><span>Point every level to the right MMOItems item id.</span></div>
         </div>

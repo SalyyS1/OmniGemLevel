@@ -21,7 +21,7 @@ class GemIdLevelStat : ItemStat<GemIdLevelRandomData, GemIdLevelData>(
     "Gem ID Level",
     arrayOf(
         "Stores a logical gem id and level.",
-        "Format: satthuong_3"
+        "Format: damage_3"
     ),
     arrayOf("gem_stone")
 ), GemStoneStat {
@@ -46,7 +46,7 @@ class GemIdLevelStat : ItemStat<GemIdLevelRandomData, GemIdLevelData>(
 
         StatEdition(inv, this).enable(
             "Write the gem id and level.",
-            "Format: satthuong_3"
+            "Format: damage_3"
         )
     }
 

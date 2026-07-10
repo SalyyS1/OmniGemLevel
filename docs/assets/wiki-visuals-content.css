@@ -136,12 +136,14 @@
 
 .css-cursor {
   position: absolute;
+  right: 15px;
+  bottom: 11px;
   width: 22px;
   height: 30px;
-  margin-left: 26px;
   clip-path: polygon(0 0, 100% 73%, 58% 68%, 44% 100%, 31% 93%, 43% 62%, 0 79%);
   background: var(--ink);
   filter: drop-shadow(2px 3px 0 #26313a);
+  pointer-events: none;
 }
 
 .css-drag-card .css-gem {
@@ -203,21 +205,23 @@
 .css-core-arrow {
   position: absolute;
   top: calc(50% - 39px);
+  left: 50%;
   width: 36px;
   height: 3px;
   background: var(--gold);
+  transform: translateX(-50%);
 }
 
 .css-core-arrow::after {
   content: "";
   position: absolute;
   right: -3px;
-  top: -5px;
+  top: 50%;
   width: 12px;
   height: 12px;
   border-top: 3px solid var(--gold);
   border-right: 3px solid var(--gold);
-  transform: rotate(45deg);
+  transform: translateY(-50%) rotate(45deg);
 }
 
 .css-merge-core b {
@@ -626,4 +630,3 @@
 .css-workflow-arrow::after {
   border-color: var(--green);
 }
-

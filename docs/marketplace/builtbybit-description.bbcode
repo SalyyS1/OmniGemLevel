@@ -1,0 +1,129 @@
+[CENTER][IMG]https://salyys1.github.io/OmniGemLevel/assets/showcase/omnigemlevel-resource-banner-1920x640.png[/IMG]
+
+[SIZE=6][B][COLOR=#4CE0A0]SAME GEM. SAME LEVEL. ONE UPGRADE.[/COLOR][/B][/SIZE]
+[SIZE=4]Turn exact duplicate MMOItems gemstones into clear RPG progression without consuming another socket.[/SIZE]
+
+[B]OmniGemLevel[/B] is a focused gemstone leveling addon for [B]MMOItems[/B].
+When a player drags a gem with the same id and the same level onto an item that already contains it, the existing socket upgrades to the next configured gem template.
+
+[B]Built by SalyVn[/B][/CENTER]
+
+[IMG]https://salyys1.github.io/OmniGemLevel/assets/showcase/omnigemlevel-01-product-cover-1920x1080.png[/IMG]
+
+[SIZE=5][B][COLOR=#4CE0A0]CORE FEATURES[/COLOR][/B][/SIZE]
+
+[LIST]
+[*][B]Exact duplicate fusion[/B] - both gem id and gem level must match.
+[*][B]No extra socket consumed[/B] - the old socket becomes the next gem level.
+[*][B]No accidental overwrites[/B] - different ids and levels stay in MMOItems native flow.
+[*][B]Global max level[/B] - defaults to level 5.
+[*][B]Per-gem overrides[/B] - each gem family can use a different cap.
+[*][B]Custom template mapping[/B] - map every level to any MMOItems item id.
+[*][B]Convention fallback[/B] - optionally resolve ids using the GEMID_LEVEL pattern.
+[*][B]Safe failure behavior[/B] - a missing or invalid next template does not consume the cursor gem.
+[/LIST]
+
+[SIZE=5][B][COLOR=#FFC857]HOW THE UPGRADE WORKS[/COLOR][/B][/SIZE]
+
+[IMG]https://salyys1.github.io/OmniGemLevel/assets/showcase/omnigemlevel-02-gem-fusion-1920x1080.png[/IMG]
+
+[B]1. Identify the duplicate[/B]
+OmniGemLevel reads [ICODE]GEM_ID_LEVEL[/ICODE] from the cursor gem and the gem already applied to the item.
+
+[B]2. Resolve the next template[/B]
+If both family and level match, the plugin finds the configured MMOItems template for [ICODE]level + 1[/ICODE].
+
+[B]3. Upgrade the existing socket[/B]
+The old socket receives the next-level gem while the remaining sockets stay free.
+
+[CENTER][B][COLOR=#4CE0A0]satthuong_1 + satthuong_1 = satthuong_2[/COLOR][/B][/CENTER]
+
+[SIZE=5][B][COLOR=#62A9FF]SAFE MATCHING RULES[/COLOR][/B][/SIZE]
+
+[IMG]https://salyys1.github.io/OmniGemLevel/assets/showcase/omnigemlevel-03-safe-matching-1920x1080.png[/IMG]
+
+[LIST]
+[*][B]Same id + same level[/B] -> upgrade the existing socket.
+[*][B]Same id + different level[/B] -> return to MMOItems native handling.
+[*][B]Different id[/B] -> return to MMOItems native handling.
+[*][B]Already at max level[/B] -> block the upgrade and keep the cursor gem.
+[/LIST]
+
+This keeps normal MMOItems socket restrictions and non-upgrade behavior in control.
+
+[SIZE=5][B][COLOR=#FFC857]FLEXIBLE GEM CONFIGURATION[/COLOR][/B][/SIZE]
+
+[IMG]https://salyys1.github.io/OmniGemLevel/assets/showcase/omnigemlevel-04-flexible-config-1920x1080.png[/IMG]
+
+[CODE=yaml]
+default-max-level: 5
+
+resolver:
+  convention-fallback: true
+  id-case: upper
+
+gems:
+  satthuong:
+    max-level: 5
+    type: GEM_STONE
+    levels:
+      1: SATTHUONG_1
+      2: SATTHUONG_2
+      3: SATTHUONG_3
+      4: SATTHUONG_4
+      5: SATTHUONG_5
+[/CODE]
+
+[B]Global default:[/B] applies to every gem family without its own cap.
+[B]Per-gem override:[/B] a family [ICODE]max-level[/ICODE] takes priority.
+[B]Explicit mapping:[/B] item ids do not need to match the stat value.
+
+[SIZE=5][B][COLOR=#4CE0A0]MMOITEMS WORKFLOW[/COLOR][/B][/SIZE]
+
+[IMG]https://salyys1.github.io/OmniGemLevel/assets/showcase/omnigemlevel-05-mmoitems-workflow-1920x1080.png[/IMG]
+
+[B]Add the custom stat to every gemstone template:[/B]
+
+[CODE=yaml]
+SATTHUONG_1:
+  base:
+    material: EMERALD
+    name: '&aDamage Gem I'
+    gem-id-level: satthuong_1
+
+SATTHUONG_2:
+  base:
+    material: EMERALD
+    name: '&aDamage Gem II'
+    gem-id-level: satthuong_2
+[/CODE]
+
+[B]GEM_ID_LEVEL identifies the gem only.[/B]
+Damage, defense, socket color, and the real gemstone stats remain managed by MMOItems.
+
+[SIZE=5][B][COLOR=#62A9FF]REQUIREMENTS[/COLOR][/B][/SIZE]
+
+[LIST]
+[*][B]Server software:[/B] Paper 1.21
+[*][B]Required plugin:[/B] MMOItems
+[*][B]Required library:[/B] MythicLib
+[/LIST]
+
+[SIZE=5][B][COLOR=#FFC857]QUICK FAQ[/COLOR][/B][/SIZE]
+
+[B]Does a different gem level overwrite the old gem?[/B]
+No. Only the same id and the same level enter the upgrade flow.
+
+[B]Does the upgrade use gemstone success-rate?[/B]
+No. An exact-pair upgrade succeeds when the next-level template exists and is valid.
+
+[B]What happens when the next template is missing?[/B]
+The item stays unchanged and the cursor gem is not consumed.
+
+[B]Do socket color and item restrictions still work?[/B]
+Yes. Non-upgrade cases remain in MMOItems native handling.
+
+[CENTER][SIZE=5][B][URL='https://salyys1.github.io/OmniGemLevel/'][COLOR=#4CE0A0]OPEN THE OMNIGEMLEVEL USAGE WIKI[/COLOR][/URL][/B][/SIZE]
+
+Paper 1.21 | MMOItems + MythicLib | Version 1.0.0
+[B]OmniGemLevel by SalyVn[/B][/CENTER]

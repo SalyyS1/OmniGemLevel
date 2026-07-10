@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OmniGemLevel BuiltByBit Showcase</title>
+  <link rel="stylesheet" href="showcase.css">
+</head>
+<body>
+  <main>
+    <section class="banner hero" data-slide="hero" aria-label="OmniGemLevel product cover">
+      <div class="texture"></div>
+      <header class="masthead">
+        <div class="brand-lockup">
+          <div class="brand-gem"><span></span></div>
+          <div>
+            <div class="brand-name">OmniGemLevel</div>
+            <div class="brand-author">BY SALYVN</div>
+          </div>
+        </div>
+        <div class="product-tag">MMOITEMS ADDON</div>
+      </header>
+
+      <div class="hero-copy">
+        <div class="eyebrow">SMART GEM PROGRESSION</div>
+        <h1>Same gem.<br>Same level.<br><span>One upgrade.</span></h1>
+        <p>Turn duplicate gemstones into clean, satisfying progression without wasting another socket.</p>
+        <div class="hero-badges">
+          <div class="feature-chip"><i class="chip-dot green"></i>Drag &amp; drop</div>
+          <div class="feature-chip"><i class="chip-dot gold"></i>Configurable levels</div>
+          <div class="feature-chip"><i class="chip-dot blue"></i>Native MMOItems flow</div>
+        </div>
+      </div>
+
+      <div class="fusion-stage" aria-hidden="true">
+        <div class="stage-label">LIVE UPGRADE LOGIC</div>
+        <div class="fusion-line">
+          <div class="gem-card level-one">
+            <div class="pixel-gem emerald"><span></span></div>
+            <div class="gem-code">satthuong_1</div>
+            <div class="gem-level">LEVEL 01</div>
+          </div>
+          <div class="math-symbol">+</div>
+          <div class="gem-card level-one second">
+            <div class="pixel-gem emerald"><span></span></div>
+            <div class="gem-code">satthuong_1</div>
+            <div class="gem-level">LEVEL 01</div>
+          </div>
+          <div class="fusion-arrow"><span></span></div>
+          <div class="gem-card result">
+            <div class="result-rays"></div>
+            <div class="pixel-gem amber"><span></span></div>
+            <div class="gem-code">satthuong_2</div>
+            <div class="gem-level">LEVEL 02</div>
+            <div class="upgrade-stamp">UPGRADED</div>
+          </div>
+        </div>
+        <div class="slot-note"><b>1</b> existing socket upgraded <span>/</span> <b>0</b> extra sockets used</div>
+      </div>
+
+      <footer class="footer-line">
+        <span>OMNIGEMLEVEL v1.0.0</span>
+        <span>PAPER 1.21</span>
+        <span>REQUIRES MMOITEMS + MYTHICLIB</span>
+      </footer>
+    </section>
+
+    <section class="banner mechanics" data-slide="mechanics" aria-label="Gem fusion mechanics">
+      <div class="texture"></div>
+      <header class="masthead">
+        <div class="brand-lockup compact">
+          <div class="brand-gem"><span></span></div>
+          <div class="brand-name">OmniGemLevel</div>
+        </div>
+        <div class="slide-index">02 / 05</div>
+      </header>
+
+      <div class="section-heading">
+        <div class="eyebrow">CORE MECHANIC</div>
+        <h2>Fuse, don't fill.</h2>
+        <p>Duplicate gems upgrade the socket you already have.</p>
+      </div>
+
+      <div class="mechanic-board">
+        <div class="board-column before-column">
+          <div class="column-label"><span>BEFORE</span><small>1 socket occupied</small></div>
+          <div class="item-frame">
+            <div class="item-title">RPG WEAPON</div>
+            <div class="socket-row">
+              <div class="socket occupied">
+                <div class="pixel-gem emerald small"><span></span></div>
+                <b>satthuong_1</b>
+              </div>
+              <div class="socket empty">EMPTY</div>
+              <div class="socket empty">EMPTY</div>
+              <div class="socket empty">EMPTY</div>
+            </div>
+          </div>
+          <div class="drag-card">
+            <div class="cursor-shape"></div>
+            <div class="pixel-gem emerald tiny"><span></span></div>
+            <div><b>Player drags</b><code>satthuong_1</code></div>
+          </div>
+        </div>
+
+        <div class="merge-core" aria-hidden="true">
+          <div class="core-ring"><div class="core-arrow"></div></div>
+          <span>MATCH FOUND</span>
+          <small>same id + same level</small>
+        </div>
+
+        <div class="board-column after-column">
+          <div class="column-label"><span>AFTER</span><small>still 1 socket occupied</small></div>
+          <div class="item-frame success-frame">
+            <div class="item-title">RPG WEAPON</div>
+            <div class="socket-row">
+              <div class="socket occupied upgraded">
+                <div class="pixel-gem amber small"><span></span></div>
+                <b>satthuong_2</b>
+                <i>+1 LEVEL</i>
+              </div>
+              <div class="socket empty">EMPTY</div>
+              <div class="socket empty">EMPTY</div>
+              <div class="socket empty">EMPTY</div>
+            </div>
+          </div>
+          <div class="success-message"><span class="check-icon"></span> Existing socket upgraded successfully</div>
+        </div>
+      </div>
+
+      <div class="mechanic-caption">
+        <div class="caption-number">01</div>
+        <div><b>Identify duplicate</b><span>Read GEM_ID_LEVEL from both gems</span></div>
+        <div class="caption-line"></div>
+        <div class="caption-number">02</div>
+        <div><b>Resolve next template</b><span>Find the configured level + 1 gemstone</span></div>
+        <div class="caption-line"></div>
+        <div class="caption-number">03</div>
+        <div><b>Upgrade old socket</b><span>Keep the item's remaining sockets free</span></div>
+      </div>
+    </section>
+
+    <section class="banner rules" data-slide="rules" aria-label="Safe matching rules">
+      <div class="texture"></div>
+      <header class="masthead">
+        <div class="brand-lockup compact">
+          <div class="brand-gem"><span></span></div>
+          <div class="brand-name">OmniGemLevel</div>
+        </div>
+        <div class="slide-index">03 / 05</div>
+      </header>
+
+      <div class="rules-layout">
+        <div class="rules-copy">
+          <div class="eyebrow">SAFE BY DESIGN</div>
+          <h2>No accidental<br>overwrites.</h2>
+          <p>OmniGemLevel only merges an exact pair. Every other case stays in MMOItems' normal handling.</p>
+          <div class="logic-formula">
+            <span>ID</span><b>=</b><span>ID</span><i>AND</i><span>LEVEL</span><b>=</b><span>LEVEL</span>
+          </div>
+        </div>
+
+        <div class="rule-list">
+          <div class="rule-row positive">
+            <div class="rule-status"><span class="check-icon"></span></div>
+            <div class="rule-pair"><code>satthuong_1</code><b>+</b><code>satthuong_1</code></div>
+            <div class="rule-result"><small>EXACT MATCH</small><strong>Upgrade existing socket</strong></div>
+            <div class="result-code">satthuong_2</div>
+          </div>
+          <div class="rule-row neutral">
+            <div class="rule-status"><span class="pass-icon"></span></div>
+            <div class="rule-pair"><code>satthuong_1</code><b>+</b><code>satthuong_2</code></div>
+            <div class="rule-result"><small>DIFFERENT LEVEL</small><strong>Pass to MMOItems</strong></div>
+            <div class="result-code native">NATIVE FLOW</div>
+          </div>
+          <div class="rule-row neutral blue-row">
+            <div class="rule-status"><span class="pass-icon"></span></div>
+            <div class="rule-pair"><code>satthuong_1</code><b>+</b><code>phongthu_1</code></div>
+            <div class="rule-result"><small>DIFFERENT ID</small><strong>Pass to MMOItems</strong></div>
+            <div class="result-code native">NATIVE FLOW</div>
+          </div>
+          <div class="rule-row blocked">
+            <div class="rule-status"><span class="stop-icon"></span></div>
+            <div class="rule-pair"><code>satthuong_5</code><b>+</b><code>satthuong_5</code></div>
+            <div class="rule-result"><small>MAX LEVEL</small><strong>Upgrade blocked</strong></div>
+            <div class="result-code maxed">MAXED</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rules-footer">
+        <div><b>EXACT-PAIR MATCHING</b><span>Both gem id and level must match</span></div>
+        <div><b>NO FORCED SOCKETING</b><span>Non-upgrade cases remain native</span></div>
+        <div><b>CLEAR MAX-LEVEL GUARD</b><span>Configured cap is always respected</span></div>
+      </div>
+    </section>
+
+    <section class="banner config" data-slide="config" aria-label="Flexible configuration">
+      <div class="texture"></div>
+      <header class="masthead">
+        <div class="brand-lockup compact">
+          <div class="brand-gem"><span></span></div>
+          <div class="brand-name">OmniGemLevel</div>
+        </div>
+        <div class="slide-index">04 / 05</div>
+      </header>
+
+      <div class="config-layout">
+        <div class="config-copy">
+          <div class="eyebrow">SERVER-FIRST CONFIGURATION</div>
+          <h2>Control every<br>gem line.</h2>
+          <p>Start with a global level cap, then override any gem family when your progression needs a different ceiling.</p>
+          <div class="config-points">
+            <div><span class="mini-gem green-gem"></span><b>Global default</b><small>Level 5 out of the box</small></div>
+            <div><span class="mini-gem gold-gem"></span><b>Per-gem override</b><small>Choose a custom cap per family</small></div>
+            <div><span class="mini-gem blue-gem"></span><b>Explicit templates</b><small>Map every level to an MMOItems id</small></div>
+          </div>
+        </div>
+
+        <div class="code-window">
+          <div class="window-bar">
+            <div class="window-dots"><i></i><i></i><i></i></div>
+            <span>plugins/OmniGemLevel/config.yml</span>
+            <b>YAML</b>
+          </div>
+          <pre><code><span class="key">default-max-level</span>: <span class="number">5</span>
+
+<span class="key">gems</span>:
+  <span class="family">satthuong</span>:
+    <span class="key">max-level</span>: <span class="number">5</span>
+    <span class="key">type</span>: <span class="string">GEM_STONE</span>
+    <span class="key">levels</span>:
+      <span class="number">1</span>: <span class="string">SATTHUONG_1</span>
+      <span class="number">2</span>: <span class="string">SATTHUONG_2</span>
+      <span class="number">3</span>: <span class="string">SATTHUONG_3</span>
+      <span class="number">4</span>: <span class="string">SATTHUONG_4</span>
+      <span class="number">5</span>: <span class="string">SATTHUONG_5</span>
+
+  <span class="family alt">phongthu</span>:
+    <span class="key">max-level</span>: <span class="number highlight-number">4</span> <span class="comment"># per-gem override</span></code></pre>
+          <div class="code-callout"><span></span>ONE CONFIG. UNLIMITED GEM FAMILIES.</div>
+        </div>
+      </div>
+
+      <div class="config-footer">
+        <div class="stat-card"><small>GLOBAL DEFAULT</small><b>Lv. 5</b></div>
+        <div class="stat-card"><small>CUSTOM OVERRIDES</small><b>Per gem</b></div>
+        <div class="stat-card"><small>ID RESOLVER</small><b>Mapped + fallback</b></div>
+        <div class="stat-card"><small>CONFIG FORMAT</small><b>Clean YAML</b></div>
+      </div>
+    </section>
+
+    <section class="banner workflow" data-slide="workflow" aria-label="MMOItems workflow">
+      <div class="texture"></div>
+      <header class="masthead">
+        <div class="brand-lockup compact">
+          <div class="brand-gem"><span></span></div>
+          <div class="brand-name">OmniGemLevel</div>
+        </div>
+        <div class="slide-index">05 / 05</div>
+      </header>
+
+      <div class="workflow-heading">
+        <div class="eyebrow">MADE FOR MMOITEMS SERVERS</div>
+        <h2>Fits your existing workflow.</h2>
+        <p>One stat. One config map. Familiar drag-and-drop gameplay.</p>
+      </div>
+
+      <div class="workflow-track">
+        <div class="workflow-step step-one">
+          <div class="step-number">01</div>
+          <div class="step-visual stat-editor">
+            <div class="editor-title"><span></span>MMOItems Editor</div>
+            <div class="editor-row"><small>STAT</small><b>Gem ID Level</b></div>
+            <div class="editor-input">satthuong_1<i></i></div>
+          </div>
+          <div class="step-copy"><b>Add GEM_ID_LEVEL</b><span>Tag each gemstone with its family and level.</span></div>
+        </div>
+
+        <div class="workflow-connector"><span></span></div>
+
+        <div class="workflow-step step-two">
+          <div class="step-number">02</div>
+          <div class="step-visual map-visual">
+            <div class="map-line"><code>satthuong_1</code><i></i><b>Lv. 1</b></div>
+            <div class="map-line"><code>satthuong_2</code><i></i><b>Lv. 2</b></div>
+            <div class="map-line"><code>satthuong_3</code><i></i><b>Lv. 3</b></div>
+          </div>
+          <div class="step-copy"><b>Map level templates</b><span>Point every level to the right MMOItems item id.</span></div>
+        </div>
+
+        <div class="workflow-connector"><span></span></div>
+
+        <div class="workflow-step step-three">
+          <div class="step-number">03</div>
+          <div class="step-visual drag-visual">
+            <div class="mini-socket"><div class="pixel-gem emerald tiny"><span></span></div><small>Lv. 1</small></div>
+            <b>+</b>
+            <div class="mini-socket"><div class="pixel-gem emerald tiny"><span></span></div><small>Lv. 1</small></div>
+            <div class="tiny-arrow"></div>
+            <div class="mini-socket result-socket"><div class="pixel-gem amber tiny"><span></span></div><small>Lv. 2</small></div>
+          </div>
+          <div class="step-copy"><b>Players drag &amp; upgrade</b><span>Exact duplicates merge into the existing socket.</span></div>
+        </div>
+      </div>
+
+      <div class="compatibility-strip">
+        <div class="compat-title"><small>REQUIRES</small><b>Built on the MMOItems ecosystem</b></div>
+        <div class="compat-item mmo"><span>MI</span><div><b>MMOItems</b><small>Required</small></div></div>
+        <div class="compat-item mythic"><span>ML</span><div><b>MythicLib</b><small>Required</small></div></div>
+        <div class="compat-item paper"><span>P</span><div><b>Paper</b><small>1.21</small></div></div>
+        <div class="compat-end"><span class="check-icon"></span><b>READY FOR YOUR RPG SERVER</b></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const requested = new URLSearchParams(window.location.search).get("slide") || "hero";
+    const banners = [...document.querySelectorAll(".banner")];
+    const active = banners.find((banner) => banner.dataset.slide === requested) || banners[0];
+    active.classList.add("is-active");
+    document.title = `OmniGemLevel - ${active.dataset.slide}`;
+  </script>
+</body>
+</html>

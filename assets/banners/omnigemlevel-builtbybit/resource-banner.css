@@ -1,0 +1,281 @@
+:root {
+  --bg: #080b0f;
+  --surface: #10161c;
+  --line: #29343d;
+  --ink: #f4f2e9;
+  --green: #4ce0a0;
+  --gold: #ffc857;
+  --blue: #62a9ff;
+  --red: #ff6d6d;
+  --violet: #a78bfa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 1920px;
+  height: 640px;
+  margin: 0;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+body {
+  color: var(--ink);
+  font-family: "Bahnschrift", "Segoe UI", sans-serif;
+}
+
+.resource-banner {
+  position: relative;
+  width: 1920px;
+  height: 640px;
+  overflow: hidden;
+  border-top: 6px solid var(--green);
+  background:
+    linear-gradient(112deg, rgba(76, 224, 160, 0.08), transparent 40%),
+    linear-gradient(300deg, rgba(255, 200, 87, 0.06), transparent 34%),
+    var(--bg);
+}
+
+.grid-texture {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(90deg, #000, rgba(0, 0, 0, 0.8) 65%, transparent);
+}
+
+.grid-texture::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.2;
+  background-image: repeating-linear-gradient(135deg, transparent 0 9px, rgba(255, 255, 255, 0.022) 9px 10px);
+}
+
+.frame-lines {
+  position: absolute;
+  inset: 48px 58px;
+  border: 1px solid rgba(130, 149, 163, 0.27);
+  border-left: 0;
+  border-right: 0;
+}
+
+.frame-lines::before,
+.frame-lines::after {
+  content: "";
+  position: absolute;
+  width: 82px;
+  height: 5px;
+  background: var(--gold);
+}
+
+.frame-lines::before {
+  top: -3px;
+  left: 0;
+}
+
+.frame-lines::after {
+  right: 0;
+  bottom: -3px;
+  background: var(--green);
+}
+
+.brand-copy {
+  position: absolute;
+  z-index: 3;
+  top: 157px;
+  left: 110px;
+  width: 910px;
+  padding-left: 38px;
+  border-left: 6px solid var(--green);
+}
+
+.brand-mark {
+  position: absolute;
+  top: 7px;
+  left: -27px;
+  width: 48px;
+  height: 48px;
+  clip-path: polygon(50% 0, 88% 22%, 100% 62%, 50% 100%, 0 62%, 12% 22%);
+  background: var(--green);
+}
+
+.brand-mark::before,
+.brand-mark::after,
+.brand-mark span {
+  content: "";
+  position: absolute;
+}
+
+.brand-mark::before {
+  inset: 8px;
+  clip-path: inherit;
+  background: #0a4436;
+}
+
+.brand-mark::after {
+  top: 8px;
+  left: 14px;
+  width: 12px;
+  height: 24px;
+  transform: skew(-18deg);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.brand-mark span {
+  right: 9px;
+  bottom: 11px;
+  width: 7px;
+  height: 7px;
+  background: var(--gold);
+}
+
+.brand-copy h1 {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Bahnschrift Condensed", "Bahnschrift", sans-serif;
+  font-size: 142px;
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+.brand-copy p {
+  margin: 28px 0 0 5px;
+  color: var(--green);
+  font-family: "Cascadia Mono", Consolas, monospace;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 9px;
+}
+
+.gem-stage {
+  position: absolute;
+  top: 70px;
+  right: 54px;
+  width: 840px;
+  height: 520px;
+}
+
+.track {
+  position: absolute;
+  left: 25px;
+  right: 20px;
+  height: 2px;
+  transform-origin: left center;
+  transform: rotate(-8deg);
+}
+
+.track-back {
+  top: 334px;
+  background: #34414a;
+}
+
+.track-front {
+  top: 369px;
+  background: linear-gradient(90deg, var(--violet), var(--blue), var(--green), var(--gold), var(--red));
+}
+
+.gem {
+  position: absolute;
+  z-index: 2;
+  clip-path: polygon(25% 0, 75% 0, 100% 30%, 84% 78%, 50% 100%, 16% 78%, 0 30%);
+  filter: drop-shadow(0 22px 22px rgba(0, 0, 0, 0.4));
+}
+
+.gem::before,
+.gem::after,
+.gem span {
+  content: "";
+  position: absolute;
+}
+
+.gem::before {
+  top: 11%;
+  left: 29%;
+  width: 21%;
+  height: 47%;
+  transform: skew(-20deg);
+  background: rgba(255, 255, 255, 0.66);
+}
+
+.gem::after {
+  right: 16%;
+  bottom: 23%;
+  width: 14%;
+  aspect-ratio: 1;
+  background: rgba(255, 255, 255, 0.36);
+}
+
+.gem span {
+  left: 13%;
+  bottom: 22%;
+  width: 16%;
+  height: 30%;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.gem-small {
+  width: 92px;
+  height: 92px;
+}
+
+.gem-medium {
+  width: 132px;
+  height: 132px;
+}
+
+.gem-large {
+  width: 188px;
+  height: 188px;
+}
+
+.gem-violet {
+  background: #7c5ce2;
+  box-shadow: inset 0 -15px 0 #4c338d, inset 14px 0 0 var(--violet);
+}
+
+.gem-blue {
+  background: #287ec5;
+  box-shadow: inset 0 -18px 0 #17486f, inset 18px 0 0 var(--blue);
+}
+
+.gem-green {
+  background: #0c9d6d;
+  box-shadow: inset 0 -24px 0 #075d45, inset 24px 0 0 var(--green);
+}
+
+.gem-gold {
+  background: #f7b932;
+  box-shadow: inset 0 -18px 0 #9c6414, inset 18px 0 0 #ffe383;
+}
+
+.gem-red {
+  background: #cc4e58;
+  box-shadow: inset 0 -15px 0 #7a2b32, inset 14px 0 0 #ff9898;
+}
+
+.pos-one { left: 20px; top: 290px; transform: rotate(-8deg); }
+.pos-two { left: 155px; top: 205px; transform: rotate(-4deg); }
+.pos-three { left: 340px; top: 100px; }
+.pos-four { left: 570px; top: 200px; transform: rotate(4deg); }
+.pos-five { left: 745px; top: 292px; transform: rotate(8deg); }
+
+.level-line {
+  position: absolute;
+  z-index: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  transform-origin: left center;
+}
+
+.line-one { width: 114px; left: 100px; top: 317px; transform: rotate(-30deg); }
+.line-two { width: 150px; left: 270px; top: 247px; transform: rotate(-32deg); }
+.line-three { width: 176px; left: 500px; top: 242px; transform: rotate(33deg); }
+.line-four { width: 122px; left: 678px; top: 314px; transform: rotate(30deg); }

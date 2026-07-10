@@ -120,14 +120,6 @@
     padding-bottom: 36px;
   }
 
-  .hero-media img {
-    height: 260px;
-    min-height: 0;
-    aspect-ratio: 16 / 9;
-    object-fit: contain;
-    object-position: center;
-  }
-
   .hero-copy {
     padding-top: 36px;
   }
@@ -175,11 +167,6 @@
 
   .media-frame {
     width: 100%;
-  }
-
-  .media-frame img {
-    min-height: 250px;
-    object-position: center;
   }
 
   .setup-steps {
@@ -265,11 +252,6 @@
     font-size: 2.15rem;
   }
 
-  .hero-media img {
-    height: 230px;
-    min-height: 0;
-  }
-
   .fact-strip {
     grid-template-columns: 1fr;
   }
@@ -284,10 +266,6 @@
 
   .fact-strip > div:last-child {
     border-bottom: 0;
-  }
-
-  .media-frame img {
-    min-height: 210px;
   }
 
   .hero-links {

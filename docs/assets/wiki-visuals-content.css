@@ -1,0 +1,629 @@
+/* Socket mechanic */
+.css-mechanics-visual {
+  min-height: 530px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 175px minmax(0, 1fr);
+  gap: 0;
+  padding: 0;
+}
+
+.css-socket-column {
+  padding: 38px 34px;
+  background: rgba(15, 22, 28, .78);
+}
+
+.css-socket-column:first-child {
+  border-left: 4px solid var(--line-strong);
+}
+
+.css-socket-column.is-after {
+  border-right: 4px solid var(--green);
+  background: linear-gradient(120deg, rgba(76, 224, 160, .1), rgba(15, 22, 28, .88));
+}
+
+.css-visual-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.css-visual-label b {
+  color: var(--muted);
+}
+
+.is-after .css-visual-label b {
+  color: var(--green);
+}
+
+.css-visual-label span {
+  color: var(--muted-2);
+  font-size: .73rem;
+}
+
+.css-item-frame {
+  border: 1px solid var(--line-strong);
+  padding: 17px;
+  background: #090e12;
+  box-shadow: inset 0 0 0 4px rgba(255, 255, 255, .018);
+}
+
+.css-item-frame > small {
+  display: block;
+  margin-bottom: 15px;
+  color: var(--muted-2);
+  font-family: "JetBrains Mono", monospace;
+  font-size: .62rem;
+  font-weight: 700;
+}
+
+.success-frame {
+  border-color: rgba(76, 224, 160, .55);
+}
+
+.css-socket-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.css-socket {
+  position: relative;
+  min-height: 108px;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 7px;
+  border: 1px solid var(--line);
+  color: #53616a;
+  background: #11181d;
+  font-family: "JetBrains Mono", monospace;
+  font-size: .52rem;
+  font-weight: 700;
+}
+
+.css-socket.occupied {
+  border-color: #27765e;
+  background: #0d1b16;
+}
+
+.css-socket.upgraded {
+  border-color: #9d7329;
+  background: #1e190d;
+}
+
+.css-socket code {
+  color: var(--ink);
+  font-size: .55rem;
+}
+
+.css-socket mark {
+  position: absolute;
+  top: -11px;
+  right: 3px;
+  padding: 3px 4px;
+  background: var(--gold);
+  color: #1c1506;
+  font-family: "JetBrains Mono", monospace;
+  font-size: .48rem;
+  font-weight: 700;
+}
+
+.css-drag-card,
+.css-success-card {
+  position: relative;
+  min-height: 66px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 21px;
+  border-left: 3px solid var(--blue);
+  padding: 10px 15px;
+  background: #11191f;
+}
+
+.css-drag-card b,
+.css-drag-card code {
+  display: block;
+}
+
+.css-drag-card b {
+  margin-bottom: 3px;
+  color: var(--muted);
+  font-family: "JetBrains Mono", monospace;
+  font-size: .58rem;
+}
+
+.css-cursor {
+  position: absolute;
+  width: 22px;
+  height: 30px;
+  margin-left: 26px;
+  clip-path: polygon(0 0, 100% 73%, 58% 68%, 44% 100%, 31% 93%, 43% 62%, 0 79%);
+  background: var(--ink);
+  filter: drop-shadow(2px 3px 0 #26313a);
+}
+
+.css-drag-card .css-gem {
+  margin-left: 0;
+}
+
+.css-success-card {
+  border-left-color: var(--green);
+  color: var(--green);
+  font-family: "JetBrains Mono", monospace;
+  font-size: .62rem;
+  font-weight: 700;
+}
+
+.css-check,
+.css-pass,
+.css-stop {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  flex: 0 0 auto;
+  border-radius: 50%;
+}
+
+.css-check { background: var(--green); }
+
+.css-check::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 5px;
+  width: 9px;
+  height: 5px;
+  border-bottom: 3px solid #07140f;
+  border-left: 3px solid #07140f;
+  transform: rotate(-45deg);
+}
+
+.css-merge-core {
+  position: relative;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 9px;
+  border-inline: 1px solid var(--line);
+  background: #080d11;
+}
+
+.css-merge-core::before {
+  content: "";
+  width: 80px;
+  height: 80px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 7px #10171c;
+}
+
+.css-core-arrow {
+  position: absolute;
+  top: calc(50% - 39px);
+  width: 36px;
+  height: 3px;
+  background: var(--gold);
+}
+
+.css-core-arrow::after {
+  content: "";
+  position: absolute;
+  right: -3px;
+  top: -5px;
+  width: 12px;
+  height: 12px;
+  border-top: 3px solid var(--gold);
+  border-right: 3px solid var(--gold);
+  transform: rotate(45deg);
+}
+
+.css-merge-core b {
+  color: var(--gold);
+  font-family: "JetBrains Mono", monospace;
+  font-size: .62rem;
+}
+
+.css-merge-core small {
+  max-width: 100px;
+  color: var(--muted-2);
+  font-size: .65rem;
+  line-height: 1.35;
+  text-align: center;
+}
+
+/* Safe matching matrix */
+.css-rules-visual {
+  min-height: 520px;
+  padding: 40px;
+}
+
+.css-rules-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 22px;
+}
+
+.css-rules-head > span { color: var(--gold); }
+
+.css-rules-head > b {
+  color: var(--ink);
+  font-family: "JetBrains Mono", monospace;
+  font-size: .86rem;
+}
+
+.css-rules-head i {
+  margin: 0 7px;
+  color: var(--gold);
+  font-size: .68rem;
+  font-style: normal;
+}
+
+.css-rule-list {
+  display: grid;
+  gap: 10px;
+  padding-top: 24px;
+}
+
+.css-rule-row {
+  min-height: 79px;
+  display: grid;
+  grid-template-columns: 34px minmax(240px, 1.1fr) minmax(170px, .8fr) 140px;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--line-strong);
+  padding: 12px 16px;
+  background: #11171c;
+}
+
+.rule-positive { border-left-color: var(--green); }
+.rule-neutral { border-left-color: var(--gold); }
+.rule-blue { border-left-color: var(--blue); }
+.rule-blocked { border-left-color: var(--red); }
+
+.css-rule-row > div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.css-rule-row code,
+.css-map-visual code,
+.css-editor-visual code {
+  border: 1px solid var(--line-strong);
+  padding: 7px;
+  background: #0a0f13;
+  color: var(--ink);
+  font-family: "JetBrains Mono", monospace;
+  font-size: .62rem;
+  font-weight: 700;
+}
+
+.css-rule-row > div > b {
+  color: var(--muted-2);
+}
+
+.css-rule-row p {
+  margin: 0;
+}
+
+.css-rule-row p small,
+.css-rule-row p strong {
+  display: block;
+}
+
+.css-rule-row p small {
+  margin-bottom: 3px;
+  color: var(--muted-2);
+  font-family: "JetBrains Mono", monospace;
+  font-size: .55rem;
+  font-weight: 700;
+}
+
+.css-rule-row p strong { font-size: .75rem; }
+
+.css-rule-row mark {
+  justify-self: start;
+  border-color: #27765e;
+  background: #0b1b15;
+  color: var(--green);
+}
+
+.rule-neutral .css-pass,
+.rule-blue .css-pass,
+.rule-blocked .css-stop {
+  border: 2px solid currentColor;
+  background: transparent;
+}
+
+.rule-neutral .css-pass { color: var(--gold); }
+.rule-blue .css-pass { color: var(--blue); }
+.rule-blocked .css-stop { color: var(--red); }
+
+.css-pass::before,
+.css-pass::after,
+.css-stop::before,
+.css-stop::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  width: 10px;
+  height: 2px;
+  background: currentColor;
+}
+
+.css-pass::before { left: 3px; }
+.css-pass::after { right: 3px; transform: rotate(90deg); }
+.css-stop::before { left: 4px; transform: rotate(45deg); }
+.css-stop::after { right: 4px; transform: rotate(-45deg); }
+
+.rule-neutral mark {
+  border-color: #705c2f;
+  background: #1d180d;
+  color: var(--gold);
+}
+
+.rule-blue mark {
+  border-color: #315b80;
+  background: #0d1720;
+  color: var(--blue);
+}
+
+.rule-blocked mark {
+  border-color: #7a3f3f;
+  background: #1d1010;
+  color: var(--red);
+}
+
+/* Config visual */
+.css-config-visual {
+  min-height: 510px;
+  display: grid;
+  grid-template-columns: minmax(240px, .7fr) minmax(380px, 1.2fr);
+  gap: 44px;
+  align-items: center;
+}
+
+.css-config-points {
+  display: grid;
+  gap: 15px;
+}
+
+.css-config-points > span {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  column-gap: 14px;
+  align-items: center;
+  min-height: 64px;
+  border-bottom: 1px solid var(--line);
+}
+
+.css-config-points i { grid-row: 1 / 3; }
+
+.css-config-points b {
+  color: var(--ink);
+}
+
+.css-config-points small {
+  color: var(--muted-2);
+  font-size: .76rem;
+}
+
+.css-terminal {
+  position: relative;
+  border: 1px solid var(--line-strong);
+  border-bottom: 5px solid var(--green);
+  background: #080d11;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, .3);
+}
+
+.css-terminal-bar {
+  min-height: 48px;
+  display: grid;
+  grid-template-columns: 68px 1fr auto;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  padding: 0 16px;
+  background: #121920;
+}
+
+.css-terminal-bar > span {
+  display: flex;
+  gap: 6px;
+}
+
+.css-terminal-bar i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--red);
+}
+
+.css-terminal-bar i:nth-child(2) { background: var(--gold); }
+.css-terminal-bar i:nth-child(3) { background: var(--green); }
+
+.css-terminal-bar b,
+.css-terminal-bar small {
+  color: var(--muted);
+  font-family: "JetBrains Mono", monospace;
+  font-size: .65rem;
+}
+
+.css-terminal-bar small {
+  border: 1px solid var(--line-strong);
+  padding: 3px 5px;
+  color: var(--gold);
+}
+
+.css-terminal pre {
+  margin: 0;
+  padding: 24px 28px 27px;
+  color: #d8e0e5;
+  font-family: "JetBrains Mono", monospace;
+  font-size: .73rem;
+  line-height: 1.7;
+}
+
+.css-terminal code { font-family: inherit; }
+.css-terminal em { color: var(--blue); font-style: normal; }
+.css-terminal pre b { color: var(--gold); }
+.css-terminal strong { color: var(--green); }
+
+.css-terminal mark {
+  position: absolute;
+  right: 20px;
+  bottom: -27px;
+  border-color: var(--green);
+  background: var(--green);
+  color: #07110d;
+}
+
+/* MMOItems workflow */
+.css-workflow-visual {
+  min-height: 510px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 55px minmax(0, 1fr) 55px minmax(0, 1fr);
+  align-items: center;
+  gap: 0;
+}
+
+.css-workflow-step {
+  position: relative;
+  min-height: 388px;
+  border: 1px solid var(--line-strong);
+  border-top: 4px solid var(--line-strong);
+  padding: 30px;
+  background: #10171c;
+}
+
+.css-workflow-step > b {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  color: #3c4851;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 2.6rem;
+  font-weight: 900;
+}
+
+.step-blue { border-top-color: var(--blue); }
+.step-green { border-top-color: var(--green); }
+.step-gold { border-top-color: var(--gold); }
+.step-blue > small { color: var(--blue); }
+.step-gold > small { color: var(--gold); }
+
+.css-editor-visual,
+.css-map-visual,
+.css-upgrade-visual {
+  min-height: 166px;
+  margin-top: 21px;
+  border: 1px solid var(--line);
+  background: #090f13;
+}
+
+.css-editor-visual {
+  position: relative;
+  display: grid;
+  align-content: center;
+  gap: 13px;
+  padding: 19px;
+}
+
+.css-editor-visual span {
+  color: var(--muted-2);
+  font-family: "JetBrains Mono", monospace;
+  font-size: .58rem;
+  font-weight: 700;
+}
+
+.css-editor-visual code { border-color: #3e5160; }
+
+.css-editor-visual i {
+  position: absolute;
+  right: 28px;
+  bottom: 33px;
+  width: 2px;
+  height: 24px;
+  background: var(--green);
+}
+
+.css-map-visual {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 20px minmax(0, 1fr);
+  align-content: center;
+  gap: 12px 8px;
+  padding: 18px;
+}
+
+.css-map-visual i {
+  height: 1px;
+  align-self: center;
+  background: var(--line-strong);
+}
+
+.css-map-visual b {
+  color: var(--green);
+  font-family: "JetBrains Mono", monospace;
+  font-size: .58rem;
+}
+
+.css-upgrade-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 19px;
+}
+
+.css-upgrade-visual > i {
+  position: relative;
+  width: 41px;
+  height: 3px;
+  background: var(--gold);
+}
+
+.css-upgrade-visual > i::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: -5px;
+  width: 11px;
+  height: 11px;
+  border-top: 3px solid var(--gold);
+  border-right: 3px solid var(--gold);
+  transform: rotate(45deg);
+}
+
+.css-workflow-step strong {
+  display: block;
+  margin-top: 22px;
+  font-size: .95rem;
+}
+
+.css-workflow-step p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: .77rem;
+  line-height: 1.5;
+}
+
+.css-workflow-step p code {
+  color: var(--green);
+  font-size: .72rem;
+}
+
+.css-workflow-arrow {
+  width: auto;
+  margin-inline: 11px;
+  background: var(--line-strong);
+}
+
+.css-workflow-arrow::after {
+  border-color: var(--green);
+}
+

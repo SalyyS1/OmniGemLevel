@@ -35,7 +35,10 @@
   <link rel="icon" type="image/svg+xml" href="assets/omnigemlevel-favicon.svg">
   <link rel="stylesheet" href="assets/wiki.css">
   <link rel="stylesheet" href="assets/wiki-content.css">
+  <link rel="stylesheet" href="assets/wiki-visuals.css">
+  <link rel="stylesheet" href="assets/wiki-visuals-content.css">
   <link rel="stylesheet" href="assets/wiki-responsive.css">
+  <link rel="stylesheet" href="assets/wiki-visuals-responsive.css">
 
   <script type="application/ld+json">
   {
@@ -81,8 +84,33 @@
 
   <main id="content">
     <section class="hero" id="top">
-      <div class="hero-media">
-        <img src="assets/showcase/omnigemlevel-resource-banner-1920x640.png" width="1920" height="640" alt="OmniGemLevel by SalyVn with five colorful gemstones">
+      <div class="hero-media css-hero-banner" role="img" aria-label="OmniGemLevel gem fusion showcase">
+        <div class="css-banner-brand">
+          <span class="css-gem gem-emerald gem-brand" aria-hidden="true"><i></i></span>
+          <div><strong>OmniGemLevel</strong><small>BY SALYVN</small></div>
+        </div>
+        <div class="css-banner-copy" aria-hidden="true">
+          <small>MMOITEMS ADDON</small>
+          <b>SMART GEM<br>PROGRESSION</b>
+          <span>SAME GEM. SAME LEVEL. ONE UPGRADE.</span>
+        </div>
+        <div class="css-banner-fusion" aria-hidden="true">
+          <div class="css-mini-card">
+            <span class="css-gem gem-emerald"><i></i></span>
+            <code>satthuong_1</code>
+          </div>
+          <b class="css-math">+</b>
+          <div class="css-mini-card">
+            <span class="css-gem gem-emerald"><i></i></span>
+            <code>satthuong_1</code>
+          </div>
+          <span class="css-flow-arrow"></span>
+          <div class="css-mini-card is-upgraded">
+            <span class="css-gem gem-gold"><i></i></span>
+            <code>satthuong_2</code>
+          </div>
+        </div>
+        <div class="css-banner-foot" aria-hidden="true"><span>DRAG &amp; DROP</span><span>LEVEL CAP</span><span>NATIVE MMOITEMS FLOW</span></div>
       </div>
 
       <div class="shell hero-copy">
@@ -116,9 +144,21 @@
         <p data-i18n="overview_copy">Người chơi không phải hy sinh thêm một socket chỉ để tiến hóa gem đang dùng. Hai gem giống hệt nhau được hợp nhất thành template level tiếp theo.</p>
       </div>
       <div class="shell media-frame">
-        <a href="assets/showcase/omnigemlevel-01-product-cover-1920x1080.png" target="_blank" rel="noopener">
-          <img src="assets/showcase/omnigemlevel-01-product-cover-1920x1080.png" width="1920" height="1080" loading="lazy" data-i18n-alt="alt_overview" alt="OmniGemLevel product overview showing two level-one gems becoming one level-two gem">
-        </a>
+        <div class="css-showcase css-overview-visual" role="img" aria-label="Two satthuong level one gems combine into one level two gem">
+          <div class="css-showcase-copy">
+            <small>EXACT-PAIR FUSION</small>
+            <b>SAME GEM.<br>SAME LEVEL.<br><em>ONE UPGRADE.</em></b>
+            <span>One existing socket upgrades. No second socket is consumed.</span>
+          </div>
+          <div class="css-overview-fusion" aria-hidden="true">
+            <div class="css-gem-card"><span class="css-gem gem-emerald"><i></i></span><code>satthuong_1</code><small>LEVEL 01</small></div>
+            <b class="css-math">+</b>
+            <div class="css-gem-card"><span class="css-gem gem-emerald"><i></i></span><code>satthuong_1</code><small>LEVEL 01</small></div>
+            <span class="css-flow-arrow"></span>
+            <div class="css-gem-card result-card"><span class="css-gem gem-gold"><i></i></span><code>satthuong_2</code><small>LEVEL 02</small><mark>UPGRADED</mark></div>
+          </div>
+          <div class="css-overview-facts" aria-hidden="true"><span><b>1</b> existing socket upgraded</span><span><b>0</b> extra sockets used</span></div>
+        </div>
       </div>
     </section>
 
@@ -164,9 +204,31 @@
         <p data-i18n="mechanics_copy">Plugin đọc GEM_ID_LEVEL trên gem đang kéo và gem đã gắn. Khi cả family lẫn level khớp, slot cũ được thay bằng template level + 1.</p>
       </div>
       <div class="shell media-frame accent-green">
-        <a href="assets/showcase/omnigemlevel-02-gem-fusion-1920x1080.png" target="_blank" rel="noopener">
-          <img src="assets/showcase/omnigemlevel-02-gem-fusion-1920x1080.png" width="1920" height="1080" loading="lazy" data-i18n-alt="alt_mechanics" alt="Before and after diagram of an existing gem socket upgrading from level one to level two">
-        </a>
+        <div class="css-showcase css-mechanics-visual" role="img" aria-label="An existing socket with satthuong level one upgrades to satthuong level two">
+          <div class="css-socket-column">
+            <div class="css-visual-label"><b>BEFORE</b><span>1 socket occupied</span></div>
+            <div class="css-item-frame">
+              <small>RPG WEAPON</small>
+              <div class="css-socket-grid">
+                <div class="css-socket occupied"><span class="css-gem gem-emerald gem-small"><i></i></span><code>satthuong_1</code></div>
+                <div class="css-socket">EMPTY</div><div class="css-socket">EMPTY</div><div class="css-socket">EMPTY</div>
+              </div>
+            </div>
+            <div class="css-drag-card"><span class="css-cursor"></span><span class="css-gem gem-emerald gem-tiny"><i></i></span><div><b>PLAYER DRAGS</b><code>satthuong_1</code></div></div>
+          </div>
+          <div class="css-merge-core" aria-hidden="true"><span class="css-core-arrow"></span><b>MATCH FOUND</b><small>same id + same level</small></div>
+          <div class="css-socket-column is-after">
+            <div class="css-visual-label"><b>AFTER</b><span>still 1 socket occupied</span></div>
+            <div class="css-item-frame success-frame">
+              <small>RPG WEAPON</small>
+              <div class="css-socket-grid">
+                <div class="css-socket occupied upgraded"><span class="css-gem gem-gold gem-small"><i></i></span><code>satthuong_2</code><mark>+1 LEVEL</mark></div>
+                <div class="css-socket">EMPTY</div><div class="css-socket">EMPTY</div><div class="css-socket">EMPTY</div>
+              </div>
+            </div>
+            <div class="css-success-card"><span class="css-check"></span> EXISTING SOCKET UPGRADED</div>
+          </div>
+        </div>
       </div>
       <div class="shell logic-rail">
         <div><span>01</span><b data-i18n="logic_1_title">Tìm gem trùng</b><small data-i18n="logic_1_copy">Đọc id và level từ stat.</small></div>
@@ -186,9 +248,15 @@
         <p data-i18n="behavior_copy">Chỉ exact pair mới được nâng cấp. Khác id, khác level hoặc trường hợp socket không hợp lệ vẫn để MMOItems xử lý theo luồng gốc.</p>
       </div>
       <div class="shell media-frame accent-gold">
-        <a href="assets/showcase/omnigemlevel-03-safe-matching-1920x1080.png" target="_blank" rel="noopener">
-          <img src="assets/showcase/omnigemlevel-03-safe-matching-1920x1080.png" width="1920" height="1080" loading="lazy" data-i18n-alt="alt_behavior" alt="Safety matrix showing exact gem matches, different levels, different ids, and max-level handling">
-        </a>
+        <div class="css-showcase css-rules-visual" role="img" aria-label="Exact pairs upgrade, other pairs use MMOItems flow or respect max level">
+          <div class="css-rules-head"><span>SAFE MATCHING MATRIX</span><b>ID = ID <i>AND</i> LEVEL = LEVEL</b></div>
+          <div class="css-rule-list">
+            <div class="css-rule-row rule-positive"><span class="css-check"></span><div><code>satthuong_1</code><b>+</b><code>satthuong_1</code></div><p><small>EXACT MATCH</small><strong>Upgrade existing socket</strong></p><mark>satthuong_2</mark></div>
+            <div class="css-rule-row rule-neutral"><span class="css-pass"></span><div><code>satthuong_1</code><b>+</b><code>satthuong_2</code></div><p><small>DIFFERENT LEVEL</small><strong>Pass to MMOItems</strong></p><mark>NATIVE FLOW</mark></div>
+            <div class="css-rule-row rule-blue"><span class="css-pass"></span><div><code>satthuong_1</code><b>+</b><code>phongthu_1</code></div><p><small>DIFFERENT ID</small><strong>Pass to MMOItems</strong></p><mark>NATIVE FLOW</mark></div>
+            <div class="css-rule-row rule-blocked"><span class="css-stop"></span><div><code>satthuong_5</code><b>+</b><code>satthuong_5</code></div><p><small>MAX LEVEL</small><strong>Upgrade blocked</strong></p><mark>MAXED</mark></div>
+          </div>
+        </div>
       </div>
 
       <div class="shell table-wrap">
@@ -221,9 +289,23 @@
         <p data-i18n="config_copy">Cấp tối đa mặc định là 5. Mỗi gem family có thể ghi đè giới hạn và ánh xạ từng level sang MMOItems item id riêng.</p>
       </div>
       <div class="shell media-frame accent-blue">
-        <a href="assets/showcase/omnigemlevel-04-flexible-config-1920x1080.png" target="_blank" rel="noopener">
-          <img src="assets/showcase/omnigemlevel-04-flexible-config-1920x1080.png" width="1920" height="1080" loading="lazy" data-i18n-alt="alt_config" alt="OmniGemLevel configuration showcase with global max level and per-gem override">
-        </a>
+        <div class="css-showcase css-config-visual" role="img" aria-label="Configuration terminal showing global default and per-gem max level override">
+          <div class="css-config-points">
+            <span><i class="css-gem gem-emerald gem-dot"></i><b>GLOBAL DEFAULT</b><small>Level 5 out of the box</small></span>
+            <span><i class="css-gem gem-gold gem-dot"></i><b>PER-GEM OVERRIDE</b><small>Any family can set its own cap</small></span>
+            <span><i class="css-gem gem-blue gem-dot"></i><b>TEMPLATE MAP</b><small>Resolve every next-level item</small></span>
+          </div>
+          <div class="css-terminal"><div class="css-terminal-bar"><span><i></i><i></i><i></i></span><b>config.yml</b><small>YAML</small></div><pre><code><em>default-max-level</em>: <b>5</b>
+
+<em>gems</em>:
+  <strong>satthuong</strong>:
+    <em>max-level</em>: <b>5</b>
+    <em>type</em>: GEM_STONE
+    <em>levels</em>:
+      <b>1</b>: SATTHUONG_1
+      <b>2</b>: SATTHUONG_2
+      <b>3</b>: SATTHUONG_3</code></pre><mark>FLEXIBLE BY DEFAULT</mark></div>
+        </div>
       </div>
 
       <div class="shell config-layout">
@@ -276,9 +358,13 @@ gems:
         <p data-i18n="mi_copy">Mỗi gem template chỉ cần GEM_ID_LEVEL đúng cấp. Damage, defense, socket color và các stat thật vẫn thuộc về MMOItems.</p>
       </div>
       <div class="shell media-frame accent-green">
-        <a href="assets/showcase/omnigemlevel-05-mmoitems-workflow-1920x1080.png" target="_blank" rel="noopener">
-          <img src="assets/showcase/omnigemlevel-05-mmoitems-workflow-1920x1080.png" width="1920" height="1080" loading="lazy" data-i18n-alt="alt_mmoitems" alt="Three-step workflow for adding GEM_ID_LEVEL, mapping templates, and upgrading by drag and drop">
-        </a>
+        <div class="css-showcase css-workflow-visual" role="img" aria-label="MMOItems workflow from GEM ID LEVEL stat to mapping and drag upgrade">
+          <article class="css-workflow-step step-blue"><b>01</b><small>MMOITEMS EDITOR</small><div class="css-editor-visual"><span>GEM_ID_LEVEL</span><code>satthuong_1</code><i></i></div><strong>Set the gem identity</strong><p>Use <code>family_level</code> on every template.</p></article>
+          <span class="css-workflow-arrow"></span>
+          <article class="css-workflow-step step-green"><b>02</b><small>OMNIGEMLEVEL CONFIG</small><div class="css-map-visual"><code>satthuong_1</code><i></i><b>SATTHUONG_1</b><code>satthuong_2</code><i></i><b>SATTHUONG_2</b></div><strong>Map each level</strong><p>Resolve the exact next MMOItems item.</p></article>
+          <span class="css-workflow-arrow"></span>
+          <article class="css-workflow-step step-gold"><b>03</b><small>IN-GAME SOCKET</small><div class="css-upgrade-visual"><span class="css-gem gem-emerald gem-small"><i></i></span><i></i><span class="css-gem gem-gold gem-small"><i></i></span></div><strong>Drag to upgrade</strong><p>Exact duplicates become the next level.</p></article>
+        </div>
       </div>
 
       <div class="shell editor-layout">

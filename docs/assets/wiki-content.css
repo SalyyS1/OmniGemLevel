@@ -12,22 +12,6 @@
 .media-frame.accent-gold { border-top-color: var(--gold); }
 .media-frame.accent-blue { border-top-color: var(--blue); }
 
-.media-frame a {
-  display: block;
-}
-
-.media-frame img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  transition: transform 320ms cubic-bezier(.2, .8, .2, 1), filter 320ms cubic-bezier(.2, .8, .2, 1);
-}
-
-.media-frame:hover img {
-  transform: scale(1.012);
-  filter: contrast(1.03);
-}
-
 .setup-steps {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

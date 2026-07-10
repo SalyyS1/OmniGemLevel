@@ -1,0 +1,374 @@
+/* CSS-native showcases. These stay sharp, responsive, and independent of PNG assets. */
+.css-showcase,
+.css-hero-banner {
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(255, 255, 255, .028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .028) 1px, transparent 1px),
+    #0a1014;
+  background-size: 36px 36px;
+}
+
+.css-showcase {
+  position: relative;
+  min-height: 500px;
+  padding: 46px;
+}
+
+.css-showcase::before,
+.css-hero-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(120deg, rgba(76, 224, 160, .08), transparent 38%, rgba(98, 169, 255, .07));
+}
+
+.css-gem {
+  --gem-main: var(--green);
+  --gem-dark: #0b5b41;
+  --gem-light: #b6ffe0;
+  position: relative;
+  width: 84px;
+  height: 96px;
+  display: inline-block;
+  flex: 0 0 auto;
+  clip-path: polygon(50% 0, 88% 20%, 100% 58%, 79% 88%, 50% 100%, 21% 88%, 0 58%, 12% 20%);
+  background: linear-gradient(135deg, var(--gem-light), var(--gem-main) 46%, var(--gem-dark) 47% 72%, var(--gem-main) 73%);
+  filter: drop-shadow(0 10px 13px rgba(0, 0, 0, .42));
+}
+
+.css-gem::before {
+  content: "";
+  position: absolute;
+  inset: 9px 18px 21px 17px;
+  clip-path: inherit;
+  background: linear-gradient(135deg, rgba(255, 255, 255, .45), transparent 42%, rgba(0, 0, 0, .24));
+}
+
+.css-gem::after {
+  content: "";
+  position: absolute;
+  right: 14px;
+  bottom: 13px;
+  width: 12px;
+  height: 13px;
+  transform: rotate(45deg);
+  background: rgba(0, 0, 0, .28);
+}
+
+.css-gem i {
+  position: absolute;
+  top: 15px;
+  left: 22px;
+  width: 13px;
+  height: 35px;
+  transform: skew(-20deg);
+  background: rgba(255, 255, 255, .74);
+}
+
+.gem-emerald { --gem-main: #4ce0a0; --gem-dark: #0d6c50; --gem-light: #c8ffe4; }
+.gem-gold { --gem-main: #ffc857; --gem-dark: #a66a12; --gem-light: #fff0b2; }
+.gem-blue { --gem-main: #62a9ff; --gem-dark: #205caa; --gem-light: #d5e9ff; }
+.gem-violet { --gem-main: #a78bfa; --gem-dark: #6045ae; --gem-light: #e3dbff; }
+
+.gem-brand {
+  width: 38px;
+  height: 44px;
+}
+
+.gem-brand i {
+  top: 7px;
+  left: 10px;
+  width: 6px;
+  height: 18px;
+}
+
+.gem-small {
+  width: 41px;
+  height: 48px;
+}
+
+.gem-small i {
+  top: 8px;
+  left: 11px;
+  width: 6px;
+  height: 17px;
+}
+
+.gem-tiny {
+  width: 31px;
+  height: 36px;
+}
+
+.gem-tiny i {
+  top: 6px;
+  left: 8px;
+  width: 5px;
+  height: 13px;
+}
+
+.gem-dot {
+  width: 20px;
+  height: 24px;
+}
+
+.gem-dot i {
+  display: none;
+}
+
+.css-flow-arrow,
+.css-workflow-arrow {
+  position: relative;
+  width: 70px;
+  height: 3px;
+  flex: 0 0 auto;
+  background: var(--gold);
+}
+
+.css-flow-arrow::after,
+.css-workflow-arrow::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: -6px;
+  width: 14px;
+  height: 14px;
+  border-top: 3px solid var(--gold);
+  border-right: 3px solid var(--gold);
+  transform: rotate(45deg);
+}
+
+.css-math {
+  color: var(--muted-2);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.5rem;
+}
+
+/* Hero banner */
+.css-hero-banner {
+  position: relative;
+  min-height: 390px;
+  aspect-ratio: 3.2 / 1;
+  border-bottom: 1px solid var(--line);
+}
+
+.css-hero-banner::before {
+  background:
+    linear-gradient(90deg, rgba(7, 12, 15, .18), transparent 48%),
+    linear-gradient(120deg, rgba(76, 224, 160, .14), transparent 40%, rgba(98, 169, 255, .08));
+}
+
+.css-banner-brand {
+  position: absolute;
+  top: 34px;
+  left: 5.2%;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.css-banner-brand strong,
+.css-banner-brand small {
+  display: block;
+}
+
+.css-banner-brand strong {
+  color: var(--ink);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: .9;
+  text-transform: uppercase;
+}
+
+.css-banner-brand small,
+.css-banner-copy small,
+.css-banner-foot {
+  color: var(--green);
+  font-family: "JetBrains Mono", monospace;
+  font-size: .66rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.css-banner-brand small {
+  margin-top: 6px;
+  color: var(--gold);
+}
+
+.css-banner-copy {
+  position: absolute;
+  top: 120px;
+  left: 5.2%;
+  display: grid;
+  gap: 12px;
+}
+
+.css-banner-copy b {
+  color: var(--ink);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 3.25rem;
+  font-weight: 900;
+  line-height: .86;
+}
+
+.css-banner-copy span {
+  max-width: 290px;
+  color: var(--muted);
+  font-family: "JetBrains Mono", monospace;
+  font-size: .68rem;
+  line-height: 1.55;
+}
+
+.css-banner-fusion {
+  position: absolute;
+  top: 50%;
+  right: 5.2%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transform: translateY(-43%);
+}
+
+.css-mini-card,
+.css-gem-card {
+  position: relative;
+  min-width: 126px;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  border: 1px solid var(--line-strong);
+  border-top: 4px solid var(--green);
+  padding: 20px 14px 15px;
+  background: rgba(12, 19, 24, .92);
+}
+
+.css-mini-card code,
+.css-gem-card code,
+.css-drag-card code {
+  color: var(--ink);
+  font-family: "JetBrains Mono", monospace;
+  font-size: .67rem;
+  font-weight: 700;
+}
+
+.css-mini-card.is-upgraded,
+.result-card {
+  border-color: rgba(255, 200, 87, .62);
+  border-top-color: var(--gold);
+  background: rgba(35, 28, 11, .92);
+}
+
+.css-banner-foot {
+  position: absolute;
+  right: 5.2%;
+  bottom: 25px;
+  left: 5.2%;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgba(164, 176, 185, .22);
+  padding-top: 14px;
+  color: var(--muted);
+}
+
+/* Product overview */
+.css-overview-visual {
+  min-height: 520px;
+  display: grid;
+  grid-template-columns: minmax(250px, .85fr) minmax(0, 1.4fr);
+  grid-template-rows: 1fr auto;
+  gap: 24px 42px;
+  align-items: center;
+}
+
+.css-showcase-copy small,
+.css-visual-label b,
+.css-rules-head > span,
+.css-config-points b,
+.css-workflow-step > small {
+  color: var(--green);
+  font-family: "JetBrains Mono", monospace;
+  font-size: .7rem;
+  font-weight: 700;
+}
+
+.css-showcase-copy b {
+  display: block;
+  margin: 12px 0 17px;
+  color: var(--ink);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 3.55rem;
+  font-weight: 900;
+  line-height: .86;
+}
+
+.css-showcase-copy em {
+  color: var(--green);
+  font-style: normal;
+}
+
+.css-showcase-copy > span {
+  display: block;
+  max-width: 260px;
+  color: var(--muted);
+  font-size: .92rem;
+  line-height: 1.55;
+}
+
+.css-overview-fusion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.css-gem-card {
+  min-width: 140px;
+  padding: 23px 16px 17px;
+}
+
+.css-gem-card small {
+  color: var(--muted-2);
+  font-family: "JetBrains Mono", monospace;
+  font-size: .6rem;
+  font-weight: 700;
+}
+
+.css-gem-card mark,
+.css-rule-row mark,
+.css-terminal mark {
+  border: 1px solid var(--gold);
+  padding: 4px 6px;
+  background: #2d230a;
+  color: var(--gold);
+  font-family: "JetBrains Mono", monospace;
+  font-size: .57rem;
+  font-weight: 700;
+}
+
+.css-gem-card mark {
+  position: absolute;
+  top: -13px;
+  right: 8px;
+}
+
+.css-overview-facts {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 34px;
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+  color: var(--muted);
+  font-size: .8rem;
+}
+
+.css-overview-facts b {
+  color: var(--green);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1rem;
+}
+

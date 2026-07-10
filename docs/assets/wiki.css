@@ -329,13 +329,6 @@ img {
   background: linear-gradient(90deg, var(--green), var(--gold), var(--blue));
 }
 
-.hero-media img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 3 / 1;
-  object-fit: cover;
-}
-
 .hero-copy {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(360px, .65fr);
